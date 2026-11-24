@@ -83,9 +83,9 @@
 <script>
 // ---------------- i18n ----------------
 const T = {
-  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item / 搜索 / ရှာရန်',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Fix the yellow/red lines first',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel'},
-  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请先处理黄色/红色的行',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消'},
-  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါ/အနီ စာကြောင်းများကို အရင်ပြင်ပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့'}
+  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\nblack fish 3 ctn\nbasa 2 ctn 5 pkt\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Tap ✓ Correct on each yellow line, and choose an item for each red line',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel',confirmOk:'✓ Correct'},
+  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请在每个黄色行按 ✓ 确认正确，红色行请选择物品',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消',confirmOk:'✓ 确认正确'},
+  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\nငါးမည်း ၃ သေတ္တာ\nကိုကာကိုလာ ၂ သေတ္တာ',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါစာကြောင်းတိုင်းတွင် ✓ နှိပ်ပါ၊ အနီစာကြောင်းအတွက် ပစ္စည်းရွေးပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့',confirmOk:'✓ မှန်ကန်သည်'}
 };
 let L = ls('lang') || 'zh';
 function t(k){ return (T[L]&&T[L][k]) || T.en[k] || k; }
@@ -109,7 +109,19 @@ function errMsg(e){ const m=String(e&&e.message||e); if(m.indexOf('PIN')>=0) ret
 function itemName(it){ const p = L==='zh'? it.cn : L==='my'? (it.my||it.en) : it.en; return p||it.en; }
 function itemSub(it){ return [L!=='en'?it.en:it.cn, it.id].filter(Boolean).join(' · '); }
 function byId(id){ return B.items.find(i=>i.id===id); }
-function u(s){ return String(s||'').split(' ')[L==='en'?0:1] || String(s||'').split(' ')[0]; }
+// ---- units & categories in the selected language
+const UNIT_EN = {'大包':'big pack','小包':'small pack','大袋':'big bag','捆':'bundle'};
+const UNIT_MY = {'箱':'သေတ္တာ','包':'ထုပ်','大包':'ထုပ်ကြီး','小包':'ထုပ်သေး','大袋':'အိတ်ကြီး','捆':'စည်း','桶':'ပုံး','瓶':'ပုလင်း','盒':'ဘူး','罐':'ဘူး','个':'ခု','套':'အစုံ'};
+function u(s){ const p=String(s||'').split(' '), code=p[0]||'', cn=p[1]||code;
+  if(L==='zh') return cn; if(L==='my') return UNIT_MY[cn]||cn; return UNIT_EN[cn]||code; }
+function fmtStock(it,base){
+  if(base==null) return ''; base=Math.round(base*100)/100;
+  if(!it.per) return base+' '+u(it.big);
+  const neg=base<0, b=Math.abs(base), bg=Math.floor(b/it.per), sm=Math.round((b-bg*it.per)*100)/100, parts=[];
+  if(bg) parts.push(bg+' '+u(it.big)); if(sm||!bg) parts.push(sm+' '+u(it.small));
+  return (neg?'-':'')+parts.join(' + ');
+}
+function stockOf(it){ return (B.stockBase&&B.stockBase[it.id]!=null) ? fmtStock(it,B.stockBase[it.id]) : (B.stock&&B.stock[it.id]!=null ? B.stock[it.id] : null); }
 
 document.querySelectorAll('.lang button').forEach(b=>{ b.onclick=()=>{ L=b.dataset.l; ls('lang',L); render(); }; });
 
@@ -148,8 +160,11 @@ function btn(ic,a,b,fn){ return `<button class="big-btn" onclick="${fn}"><span c
 
 // ---- tap mode (OUT / WRITEOFF / COUNT / IN without order)
 function startTap(mode){ S.mode=mode; S.cart={}; S.q=''; S.cat = (mode==='COUNT'||!B.frequent.length) ? '__all' : '__freq'; S.photo=''; S.reason=''; go('tap'); }
-function cats(){ const c=[]; B.items.forEach(i=>{ if(c.indexOf(i.cat)<0) c.push(i.cat); }); return c; }
-function catLabel(c){ const p=c.split(' '); return L==='zh'? p[0] : p.slice(1).join(' ')||c; }
+const CAT_ORDER=['底料/酱料','干货','油/调料','饮料','包材/耗材','冷冻'];
+function cats(){ const c=[]; B.items.forEach(i=>{ if(c.indexOf(i.cat)<0) c.push(i.cat); });
+  const k=x=>{ const n=CAT_ORDER.indexOf(x.split(' ')[0]); return n<0?99:n; }; return c.sort((a,b)=>k(a)-k(b)); }
+const CAT_MY = {'底料/酱料':'ဟင်းရည်အခြေခံ / ဆော့စ်','干货':'အခြောက်ပစ္စည်း','油/调料':'ဆီ / ဟင်းခတ်','饮料':'သောက်စရာ','包材/耗材':'ထုပ်ပိုး / သုံးကုန်','冷冻':'အေးခဲ'};
+function catLabel(c){ const p=c.split(' '); if(L==='zh') return p[0]; if(L==='my') return CAT_MY[p[0]]||p[0]; return p.slice(1).join(' ')||c; }
 function filtered(){
   const q=S.q.trim().toLowerCase();
   let list=B.items;
@@ -173,11 +188,11 @@ function drawList(){
 }
 function itemCard(it){
   const c=S.cart[it.id]||{big:0,small:0,touched:false};
-  const stock = B.stock[it.id]!=null ? `<span class="stk">${t('onHand')}: ${esc(B.stock[it.id])}</span>` : '';
+  const so=stockOf(it); const stock = so!=null ? `<span class="stk">${t('onHand')}: ${esc(so)}</span>` : '';
   const sel = (c.big||c.small||c.touched)?'sel':'';
   return `<div class="item ${sel}" id="it_${it.id}"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>${stock}
-    ${it.per?stepRow(it,'small',it.small,c.small):''}
-    ${stepRow(it,'big',it.big+(it.per?` (${it.per} ${u(it.small)})`:''),c.big)}</div>`;
+    ${it.per?stepRow(it,'small',u(it.small),c.small):''}
+    ${stepRow(it,'big',u(it.big)+(it.per?` (${it.per} ${u(it.small)})`:''),c.big)}</div>`;
 }
 function stepRow(it,k,label,v){ return `<div class="row"><div class="u">${esc(label)}</div><div class="stp"><button onclick="bump('${it.id}','${k}',-1)">−</button><span id="v_${it.id}_${k}">${v}</span><button onclick="bump('${it.id}','${k}',1)">+</button></div></div>`; }
 function bump(id,k,d){
@@ -251,8 +266,9 @@ function lineCard(l,i){
       <button class="chip other" onclick="openPicker(id=>setLine(${i},id))">${t('otherItem')}</button></div>
     ${l.qtyMissing?`<div class="sub" style="color:var(--warn)">${t('qtyMissing')}</div>`:''}
     ${l.mixed?`<div class="sub" style="color:var(--warn)">${t('mixed')}</div>`:''}
-    ${it?`${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="lq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="lq(${i},'small',1)">+</button></div></div>`:''}
-      <div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="lq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="lq(${i},'big',1)">+</button></div></div>`:''}
+    ${it?`${it.per?`<div class="row"><div class="u">${esc(u(it.small))}</div><div class="stp"><button onclick="lq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="lq(${i},'small',1)">+</button></div></div>`:''}
+      <div class="row"><div class="u">${esc(u(it.big))}${it.per?` (${it.per} ${esc(u(it.small))})`:''}</div><div class="stp"><button onclick="lq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="lq(${i},'big',1)">+</button></div></div>`:''}
+    ${l.status==='unsure'&&it?`<button class="btn" style="background:var(--ok);margin-top:10px" onclick="confirmLine(${i})">${t('confirmOk')}</button>`:''}
   </div>`;
 }
 // ---- item picker: category first, then item (with search)
@@ -274,10 +290,11 @@ function drawPicker(){
     <div class="pb"><input id="pkq" placeholder="${t('search')}" value="${esc(PK.q)}" oninput="PK.q=this.value;drawPickerList()" style="margin-bottom:10px"><div id="pkl">${body}</div></div>`;
 }
 function drawPickerList(){ const v=PK.q; drawPicker(); const el=$('pkq'); el.focus(); el.setSelectionRange(v.length,v.length); }
-function pRow(it){ return `<button class="prow" onclick="pickDone('${it.id}')"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}${B.stock[it.id]!=null?' · '+t('onHand')+': '+esc(B.stock[it.id]):''}</div></button>`; }
+function pRow(it){ return `<button class="prow" onclick="pickDone('${it.id}')"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}${stockOf(it)!=null?' · '+t('onHand')+': '+esc(stockOf(it)):''}</div></button>`; }
 function pickDone(id){ const cb=PK.cb; closePicker(); if(cb) cb(id); }
 function setLine(i,id){ const l=S.lines[i]; l.id=id; l.status=id?'ok':'none'; l.learn = !!id && l.orig!=='ok'; l.qtyMissing=false; l.mixed=false; if(id && !l.big && !l.small) l.big=1; vCheck(); }
-function lq(i,k,d){ const l=S.lines[i]; l[k]=Math.max(0,(l[k]||0)+d); l.qtyMissing=false; l.mixed=false; if(l.status==='unsure'&&l.id) l.status='ok'; vCheck(); }
+function lq(i,k,d){ const l=S.lines[i]; l[k]=Math.max(0,(l[k]||0)+d); vCheck(); }
+function confirmLine(i){ const l=S.lines[i]; if(!l.id) return; l.status='ok'; l.learn = l.orig!=='ok'; l.qtyMissing=false; l.mixed=false; vCheck(); }
 function drawCheckBar(){
   const bad=S.lines.filter(l=>l.status!=='ok').length;
   $('bar').classList.remove('hide'); $('barCnt').textContent=S.lines.length+' '+t('items');
@@ -300,8 +317,8 @@ function vRecv(){
   const d=S.del;
   $('main').innerHTML = `<h3 style="margin:4px 0 2px">${esc(d.sup)}</h3><div class="sub" style="margin-bottom:10px">${esc(d.id)} · ${esc(d.date)}</div>` +
     d.lines.map((l,i)=>{ const it=byId(l.id); return `<div class="item"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>
-      ${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="dq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="dq(${i},'small',1)">+</button></div></div>`:''}
-      <div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="dq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="dq(${i},'big',1)">+</button></div></div></div>`; }).join('') +
+      ${it.per?`<div class="row"><div class="u">${esc(u(it.small))}</div><div class="stp"><button onclick="dq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="dq(${i},'small',1)">+</button></div></div>`:''}
+      <div class="row"><div class="u">${esc(u(it.big))}${it.per?` (${it.per} ${esc(u(it.small))})`:''}</div><div class="stp"><button onclick="dq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="dq(${i},'big',1)">+</button></div></div></div>`; }).join('') +
     `<label>${t('photo')}</label><input type="file" accept="image/*" capture="environment" onchange="pickPhoto(this)"><div id="pv">${S.photo?`<img class="prev" src="${S.photo}">`:''}</div>`;
   $('bar').classList.remove('hide'); $('barCnt').textContent=d.lines.length+' '+t('items');
   $('barBtn').textContent=t('allRecv'); $('barBtn').disabled=false;

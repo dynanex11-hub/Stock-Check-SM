@@ -50,6 +50,18 @@
   .msg{padding:12px;border-radius:10px;margin-bottom:10px}
   .msg.e{background:#fee2e2;color:#7f1d1d}.msg.s{background:#dcfce7;color:#14532d}
   .hide{display:none!important}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:18px;padding:8px 12px;font-size:14px;color:var(--ink);text-align:left}
+  .chip.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+  .chip.other{background:#eef2ff;border-color:#c7d2fe;color:#1e3a8a}
+  .seg{display:flex;gap:8px;margin-bottom:10px}
+  .seg button{flex:1;padding:14px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;font-size:16px;font-weight:700;color:var(--ink)}
+  .seg button.on{border-color:var(--pri);background:#fff1f2;color:var(--pri)}
+  #pk{position:fixed;inset:0;background:var(--bg);z-index:15;display:flex;flex-direction:column}
+  #pk .ph{background:var(--ink);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px;font-weight:700}
+  #pk .ph button{background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:8px;padding:6px 12px;font-size:15px}
+  #pk .pb{padding:10px 12px;overflow-y:auto;flex:1}
+  .prow{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:6px;color:var(--ink)}
   .center{text-align:center}
   .spin{position:fixed;inset:0;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;z-index:20;font-weight:700}
   .lang button{padding:6px 8px}
@@ -66,13 +78,14 @@
 <main id="main"></main>
 <div class="bar hide" id="bar"><div class="in"><div class="cnt" id="barCnt"></div><button class="btn" id="barBtn"></button></div></div>
 <div class="spin hide" id="spin">…</div>
+<div id="pk" class="hide"></div>
 
 <script>
 // ---------------- i18n ----------------
 const T = {
-  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item / 搜索 / ရှာရန်',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Fix the yellow/red lines first',mixed:'Pack size not set up for this item — only cartons counted. Check.'},
-  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请先处理黄色/红色的行',mixed:'此物品未设置每箱包数 — 只计算了箱数，请确认'},
-  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါ/အနီ စာကြောင်းများကို အရင်ပြင်ပါ',mixed:'ဤပစ္စည်းအတွက် ထုပ်အရေအတွက် မသတ်မှတ်ရသေး — သေတ္တာသာ ရေထားသည်။ စစ်ပါ'}
+  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item / 搜索 / ရှာရန်',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Fix the yellow/red lines first',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel'},
+  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请先处理黄色/红色的行',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消'},
+  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါ/အနီ စာကြောင်းများကို အရင်ပြင်ပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့'}
 };
 let L = ls('lang') || 'zh';
 function t(k){ return (T[L]&&T[L][k]) || T.en[k] || k; }
@@ -163,8 +176,8 @@ function itemCard(it){
   const stock = B.stock[it.id]!=null ? `<span class="stk">${t('onHand')}: ${esc(B.stock[it.id])}</span>` : '';
   const sel = (c.big||c.small||c.touched)?'sel':'';
   return `<div class="item ${sel}" id="it_${it.id}"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>${stock}
-    ${stepRow(it,'big',it.big+(it.per?` (${it.per} ${u(it.small)})`:''),c.big)}
-    ${it.per?stepRow(it,'small',it.small,c.small):''}</div>`;
+    ${it.per?stepRow(it,'small',it.small,c.small):''}
+    ${stepRow(it,'big',it.big+(it.per?` (${it.per} ${u(it.small)})`:''),c.big)}</div>`;
 }
 function stepRow(it,k,label,v){ return `<div class="row"><div class="u">${esc(label)}</div><div class="stp"><button onclick="bump('${it.id}','${k}',-1)">−</button><span id="v_${it.id}_${k}">${v}</span><button onclick="bump('${it.id}','${k}',1)">+</button></div></div>`; }
 function bump(id,k,d){
@@ -187,7 +200,7 @@ function vReview(){
   const title={OUT:t('out'),WRITEOFF:t('wo'),COUNT:t('count'),IN:t('noOrder')}[S.mode];
   $('main').innerHTML = `<h3 style="margin:4px 0 8px">${title} — ${t('review')}</h3>
     ${ids.map(id=>{ const it=byId(id), c=S.cart[id]; return `<div class="item"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>
-      <div class="row"><div class="u"><b>${c.big||0}</b> ${esc(u(it.big))}${it.per?` + <b>${c.small||0}</b> ${esc(u(it.small))}`:''}</div></div></div>`; }).join('')}
+      <div class="row"><div class="u">${it.per?`<b>${c.small||0}</b> ${esc(u(it.small))} + `:''}<b>${c.big||0}</b> ${esc(u(it.big))}</div></div></div>`; }).join('')}
     ${S.mode==='WRITEOFF'?`<label>${t('reason')}</label><select id="rs">${['expired','damaged','thawed','other'].map(r=>`<option value="${r}">${t(r)}</option>`).join('')}</select><label>${t('note')}</label><input id="nt">`:''}
     ${S.mode==='IN'?`<label>${t('supplier')}</label><input id="sp"><label>${t('photo')}</label><input type="file" accept="image/*" capture="environment" onchange="pickPhoto(this)"><div id="pv"></div>`:''}
     <button class="btn sec" onclick="go('tap')">‹ ${t('change')}</button>`;
@@ -207,9 +220,13 @@ function fail(e){ busy(false); alert(errMsg(e)); }
 function vDone(){ $('main').innerHTML=`<div class="card center" style="padding:30px"><div style="font-size:52px">✅</div><h2>${t('done')}</h2><div class="sub">${S.lastN||''} ${t('items')}</div><button class="btn" onclick="go('home')">${t('again')}</button></div>`; }
 
 // ---- paste a list
-function startPaste(){ S.mode='OUT'; S.lines=[]; go('paste'); }
+function startPaste(){ S.mode='OUT'; S.pasteType=S.pasteType||'OUT'; S.lines=[]; S.photo=''; go('paste'); }
 function vPaste(){
+  const inn=S.pasteType==='IN';
   $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('paste')}</h3>
+    <div class="seg"><button class="${!inn?'on':''}" onclick="S.pasteText=$('tx').value;S.pasteType='OUT';vPaste()">${t('pasteOut')}</button><button class="${inn?'on':''}" onclick="S.pasteText=$('tx').value;S.pasteType='IN';vPaste()">${t('pasteIn')}</button></div>
+    ${inn?`<label>${t('supOpt')}</label><input id="sp" value="${esc(S.pasteSup||'')}" oninput="S.pasteSup=this.value">
+      <label>${t('photoOpt')}</label><input type="file" accept="image/*" capture="environment" onchange="pickPhoto(this)"><div id="pv">${S.photo?`<img class="prev" src="${S.photo}">`:''}</div><label>&nbsp;</label>`:''}
     <textarea id="tx" placeholder="${esc(t('pasteHelp'))}">${esc(S.pasteText||'')}</textarea>
     <button class="btn" onclick="doParse()">${t('read')} →</button>`;
 }
@@ -219,7 +236,7 @@ function doParse(){
   call('parseList',S.pasteText,S.pin).then(r=>{ busy(false); S.lines=r.map(x=>Object.assign(x,{orig:x.status})); go('check'); }).catch(fail);
 }
 function vCheck(){
-  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('check')}</h3>` + S.lines.map((l,i)=>lineCard(l,i)).join('') +
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('check')} · ${S.pasteType==='IN'?t('pasteIn'):t('pasteOut')}</h3>` + S.lines.map((l,i)=>lineCard(l,i)).join('') +
     `<button class="btn sec" onclick="go('paste')">‹ ${t('change')}</button>`;
   drawCheckBar();
 }
@@ -227,19 +244,38 @@ function lineCard(l,i){
   const it=l.id?byId(l.id):null;
   const opts = (l.options||[]).map(byId).filter(Boolean);
   const pill = {ok:['ok',t('okL')],unsure:['unsure',t('unsureL')],none:['none',t('noneL')]}[l.status];
-  const all = B.items.filter(x=>opts.indexOf(x)<0);
   return `<div class="item line s-${l.status}"><button class="x" onclick="S.lines.splice(${i},1);vCheck()">✕</button>
     <span class="pill ${pill[0]}">${pill[1]}</span><div class="raw">${esc(l.raw)}</div>
-    <select onchange="setLine(${i},this.value)"><option value="">${t('choose')}</option>
-      ${opts.length?`<optgroup label="★">${opts.map(o=>`<option value="${o.id}" ${o.id===l.id?'selected':''}>${esc(itemName(o))} · ${o.id}</option>`).join('')}</optgroup>`:''}
-      <optgroup label="${t('all')}">${all.map(o=>`<option value="${o.id}" ${o.id===l.id?'selected':''}>${esc(itemName(o))} · ${o.id}</option>`).join('')}</optgroup>
-    </select>
+    ${it && opts.indexOf(it)<0 ? `<div class="chips"><button class="chip on">✓ ${esc(itemName(it))}</button></div>`:''}
+    <div class="chips">${opts.map(o=>`<button class="chip ${o.id===l.id?'on':''}" onclick="setLine(${i},'${o.id}')">${o.id===l.id?'✓ ':''}${esc(itemName(o))}</button>`).join('')}
+      <button class="chip other" onclick="openPicker(id=>setLine(${i},id))">${t('otherItem')}</button></div>
     ${l.qtyMissing?`<div class="sub" style="color:var(--warn)">${t('qtyMissing')}</div>`:''}
     ${l.mixed?`<div class="sub" style="color:var(--warn)">${t('mixed')}</div>`:''}
-    ${it?`<div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="lq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="lq(${i},'big',1)">+</button></div></div>
-      ${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="lq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="lq(${i},'small',1)">+</button></div></div>`:''}`:''}
+    ${it?`${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="lq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="lq(${i},'small',1)">+</button></div></div>`:''}
+      <div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="lq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="lq(${i},'big',1)">+</button></div></div>`:''}
   </div>`;
 }
+// ---- item picker: category first, then item (with search)
+let PK={cb:null,cat:'',q:''};
+function openPicker(cb){ PK={cb,cat:'',q:''}; $('pk').classList.remove('hide'); drawPicker(); }
+function closePicker(){ $('pk').classList.add('hide'); $('pk').innerHTML=''; }
+function drawPicker(){
+  const q=PK.q.trim().toLowerCase();
+  let body;
+  if(q){
+    const list=B.items.filter(i=>[i.id,i.en,i.cn,i.my,i.nick].join(' ').toLowerCase().indexOf(q)>=0);
+    body=list.map(pRow).join('')||'<div class="center sub">—</div>';
+  } else if(!PK.cat){
+    body=cats().map(c=>{ const n=B.items.filter(i=>i.cat===c).length; return `<button class="big-btn" onclick="PK.cat='${c.replace(/'/g,"\\'")}';drawPicker()"><span>${esc(catLabel(c))}<small>${n} ${t('items')}</small></span></button>`; }).join('');
+  } else {
+    body=`<button class="btn sec" style="margin:0 0 10px" onclick="PK.cat='';drawPicker()">‹ ${t('all')}</button>`+B.items.filter(i=>i.cat===PK.cat).map(pRow).join('');
+  }
+  $('pk').innerHTML=`<div class="ph"><span style="flex:1">${t('pickItem')}${PK.cat&&!q?' · '+esc(catLabel(PK.cat)):''}</span><button onclick="closePicker()">${t('close')}</button></div>
+    <div class="pb"><input id="pkq" placeholder="${t('search')}" value="${esc(PK.q)}" oninput="PK.q=this.value;drawPickerList()" style="margin-bottom:10px"><div id="pkl">${body}</div></div>`;
+}
+function drawPickerList(){ const v=PK.q; drawPicker(); const el=$('pkq'); el.focus(); el.setSelectionRange(v.length,v.length); }
+function pRow(it){ return `<button class="prow" onclick="pickDone('${it.id}')"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}${B.stock[it.id]!=null?' · '+t('onHand')+': '+esc(B.stock[it.id]):''}</div></button>`; }
+function pickDone(id){ const cb=PK.cb; closePicker(); if(cb) cb(id); }
 function setLine(i,id){ const l=S.lines[i]; l.id=id; l.status=id?'ok':'none'; l.learn = !!id && l.orig!=='ok'; l.qtyMissing=false; l.mixed=false; if(id && !l.big && !l.small) l.big=1; vCheck(); }
 function lq(i,k,d){ const l=S.lines[i]; l[k]=Math.max(0,(l[k]||0)+d); l.qtyMissing=false; l.mixed=false; if(l.status==='unsure'&&l.id) l.status='ok'; vCheck(); }
 function drawCheckBar(){
@@ -247,8 +283,9 @@ function drawCheckBar(){
   $('bar').classList.remove('hide'); $('barCnt').textContent=S.lines.length+' '+t('items');
   $('barBtn').textContent=t('submit'); $('barBtn').disabled = !S.lines.length;
   $('barBtn').onclick=()=>{ if(bad) return alert(t('confirmLines'));
-    busy(true); call('submit',{type:'OUT',staff:S.staff,pin:S.pin,note:'Pasted list',
-      lines:S.lines.map(l=>({id:l.id,big:l.big,small:l.small,raw:l.raw,name:l.name,learn:!!l.learn}))}).then(r=>{S.pasteText='';after(r);}).catch(fail); };
+    const inn=S.pasteType==='IN';
+    busy(true); call('submit',{type:inn?'IN':'OUT',staff:S.staff,pin:S.pin,ref:inn?'PASTE-IN':'',photo:inn?S.photo:'',note:'Pasted list'+(inn&&S.pasteSup?' | Supplier: '+S.pasteSup:''),
+      lines:S.lines.map(l=>({id:l.id,big:l.big,small:l.small,raw:l.raw,name:l.name,learn:!!l.learn}))}).then(r=>{S.pasteText='';S.pasteSup='';after(r);}).catch(fail); };
 }
 
 // ---- deliveries
@@ -263,8 +300,8 @@ function vRecv(){
   const d=S.del;
   $('main').innerHTML = `<h3 style="margin:4px 0 2px">${esc(d.sup)}</h3><div class="sub" style="margin-bottom:10px">${esc(d.id)} · ${esc(d.date)}</div>` +
     d.lines.map((l,i)=>{ const it=byId(l.id); return `<div class="item"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>
-      <div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="dq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="dq(${i},'big',1)">+</button></div></div>
-      ${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="dq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="dq(${i},'small',1)">+</button></div></div>`:''}</div>`; }).join('') +
+      ${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="dq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="dq(${i},'small',1)">+</button></div></div>`:''}
+      <div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="dq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="dq(${i},'big',1)">+</button></div></div></div>`; }).join('') +
     `<label>${t('photo')}</label><input type="file" accept="image/*" capture="environment" onchange="pickPhoto(this)"><div id="pv">${S.photo?`<img class="prev" src="${S.photo}">`:''}</div>`;
   $('bar').classList.remove('hide'); $('barCnt').textContent=d.lines.length+' '+t('items');
   $('barBtn').textContent=t('allRecv'); $('barBtn').disabled=false;

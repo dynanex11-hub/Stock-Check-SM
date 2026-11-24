@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Yonny SM Stock</title>
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1d2433;--muted:#6b7280;--line:#e5e7eb;--pri:#c8102e;--ok:#16a34a;--warn:#d97706;--bad:#dc2626;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,"Noto Sans SC","Noto Sans Myanmar","Myanmar Text",sans-serif;background:var(--bg);color:var(--ink);font-size:16px}
+  header{position:sticky;top:0;z-index:5;background:var(--pri);color:#fff;padding:10px 14px;display:flex;align-items:center;gap:10px}
+  header .t{flex:1;font-weight:700;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  header button{background:rgba(255,255,255,.18);border:0;color:#fff;border-radius:8px;padding:6px 10px;font-size:14px}
+  main{padding:12px 12px 110px;max-width:640px;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+  .big-btn{display:flex;align-items:center;gap:12px;width:100%;padding:18px 16px;margin-bottom:10px;border:0;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:18px;font-weight:600;text-align:left;color:var(--ink)}
+  .big-btn .ic{font-size:28px;width:36px;text-align:center}
+  .big-btn small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+  label{display:block;font-size:14px;color:var(--muted);margin:10px 0 4px}
+  select,input,textarea{width:100%;font-size:17px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+  textarea{min-height:200px;font-family:inherit}
+  .btn{display:block;width:100%;padding:15px;border:0;border-radius:12px;font-size:17px;font-weight:700;background:var(--pri);color:#fff;margin-top:12px}
+  .btn.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn:disabled{opacity:.5}
+  .tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+  .tabs button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:20px;padding:8px 12px;font-size:14px;color:var(--ink)}
+  .tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .item.sel{border-color:var(--pri);box-shadow:0 0 0 2px rgba(200,16,46,.12)}
+  .nm{font-weight:600;font-size:16px;line-height:1.25}
+  .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+  .stk{color:var(--muted);font-size:12.5px}
+  .row{display:flex;align-items:center;gap:8px;margin-top:8px}
+  .row .u{flex:1;font-size:14px;color:var(--muted)}
+  .stp{display:flex;align-items:center;gap:0}
+  .stp button{width:46px;height:42px;border:1px solid var(--line);background:#f3f4f6;font-size:22px;font-weight:700;color:var(--ink)}
+  .stp button:first-child{border-radius:10px 0 0 10px}.stp button:last-child{border-radius:0 10px 10px 0}
+  .stp span{min-width:48px;height:42px;line-height:42px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:18px;font-weight:700;background:#fff}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:6}
+  .bar .in{max-width:640px;margin:0 auto;display:flex;gap:8px;align-items:center}
+  .bar .btn{margin:0;flex:1}
+  .bar .cnt{font-size:14px;color:var(--muted);min-width:70px}
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff}
+  .ok{background:var(--ok)}.unsure{background:var(--warn)}.none{background:var(--bad)}
+  .line{border-left:5px solid var(--line)}
+  .line.s-ok{border-left-color:var(--ok)}.line.s-unsure{border-left-color:var(--warn)}.line.s-none{border-left-color:var(--bad)}
+  .raw{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#f3f4f6;border-radius:6px;padding:4px 8px;margin-bottom:6px;word-break:break-all}
+  .x{float:right;border:0;background:none;color:var(--muted);font-size:20px}
+  .msg{padding:12px;border-radius:10px;margin-bottom:10px}
+  .msg.e{background:#fee2e2;color:#7f1d1d}.msg.s{background:#dcfce7;color:#14532d}
+  .hide{display:none!important}
+  .center{text-align:center}
+  .spin{position:fixed;inset:0;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;z-index:20;font-weight:700}
+  .lang button{padding:6px 8px}
+  .lang button.on{background:#fff;color:var(--pri)}
+  img.prev{max-width:100%;border-radius:10px;margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <button id="backBtn" class="hide" onclick="go('home')">‹</button>
+  <div class="t" id="title">Yonny SM</div>
+  <span class="lang"><button data-l="en">EN</button><button data-l="zh">中</button><button data-l="my">မြန်</button></span>
+</header>
+<main id="main"></main>
+<div class="bar hide" id="bar"><div class="in"><div class="cnt" id="barCnt"></div><button class="btn" id="barBtn"></button></div></div>
+<div class="spin hide" id="spin">…</div>
+
+<script>
+// ---------------- i18n ----------------
+const T = {
+  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item / 搜索 / ရှာရန်',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Fix the yellow/red lines first',mixed:'Pack size not set up for this item — only cartons counted. Check.'},
+  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请先处理黄色/红色的行',mixed:'此物品未设置每箱包数 — 只计算了箱数，请确认'},
+  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါ/အနီ စာကြောင်းများကို အရင်ပြင်ပါ',mixed:'ဤပစ္စည်းအတွက် ထုပ်အရေအတွက် မသတ်မှတ်ရသေး — သေတ္တာသာ ရေထားသည်။ စစ်ပါ'}
+};
+let L = ls('lang') || 'zh';
+function t(k){ return (T[L]&&T[L][k]) || T.en[k] || k; }
+function ls(k,v){ try{ if(v===undefined) return localStorage.getItem('ysm_'+k); localStorage.setItem('ysm_'+k,v);}catch(e){ return null; } }
+
+// ---------------- state ----------------
+let B = null;            // boot data
+let S = { staff: ls('staff')||'', pin: ls('pin')||'', mode:'', cart:{}, cat:'__freq', q:'', lines:[], del:null, photo:'', reason:'' };
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function busy(on){ $('spin').classList.toggle('hide',!on); }
+// All calls go to the Apps Script JSON API without Google cookies (credentials:'omit'),
+// so phones signed in to several Google accounts still work.
+const API = 'https://script.google.com/macros/s/AKfycbwCPiLDsuiQ51Via8gnqz8IhWVv4y_zArGQQyRsqEycQwAC18h2T-y-6TtcJ53NBwElCQ/exec';
+function call(fn,...args){
+  return fetch(API,{method:'POST',redirect:'follow',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn,args})})
+    .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(j=>{ if(!j.ok) throw new Error(j.error); return j.data; });
+}
+function errMsg(e){ const m=String(e&&e.message||e); if(m.indexOf('PIN')>=0) return t('errPin'); if(m.indexOf('STAFF')>=0) return t('errStaff'); if(m.indexOf('EMPTY')>=0) return t('errEmpty'); if(m.indexOf('PHOTO')>=0) return t('photoReq'); return t('err')+': '+m; }
+function itemName(it){ const p = L==='zh'? it.cn : L==='my'? (it.my||it.en) : it.en; return p||it.en; }
+function itemSub(it){ return [L!=='en'?it.en:it.cn, it.id].filter(Boolean).join(' · '); }
+function byId(id){ return B.items.find(i=>i.id===id); }
+function u(s){ return String(s||'').split(' ')[L==='en'?0:1] || String(s||'').split(' ')[0]; }
+
+document.querySelectorAll('.lang button').forEach(b=>{ b.onclick=()=>{ L=b.dataset.l; ls('lang',L); render(); }; });
+
+// ---------------- boot ----------------
+busy(true);
+call('getBoot').then(d=>{ B=d; busy(false); go(S.staff?'home':'login'); }).catch(e=>{ busy(false); $('main').innerHTML='<div class="msg e">'+esc(errMsg(e))+'</div>'; });
+
+function go(view){ S.view=view; window.scrollTo(0,0); render(); }
+function render(){
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L));
+  $('title').textContent = B ? B.outlet : 'Yonny SM';
+  $('backBtn').classList.toggle('hide', !B || S.view==='home' || S.view==='login');
+  $('bar').classList.add('hide');
+  if(!B) return;
+  ({login:vLogin,home:vHome,tap:vTap,review:vReview,paste:vPaste,check:vCheck,deliv:vDeliv,recv:vRecv,done:vDone})[S.view]();
+}
+
+// ---------------- views ----------------
+function vLogin(){
+  $('main').innerHTML = `<div class="card"><h2 style="margin:4px 0 8px">${t('who')}</h2>
+    <label>${t('pickName')}</label><select id="nm"><option value="">—</option>${B.staff.map(n=>`<option ${n===S.staff?'selected':''}>${esc(n)}</option>`).join('')}</select>
+    ${B.pin?`<label>${t('pin')}</label><input id="pn" inputmode="numeric" type="password" value="${esc(S.pin)}">`:''}
+    <button class="btn" onclick="doLogin()">${t('start')}</button></div>`;
+}
+function doLogin(){ const n=$('nm').value; if(!n) return alert(t('errStaff')); S.staff=n; ls('staff',n); if(B.pin){ S.pin=$('pn').value; ls('pin',S.pin);} go('home'); }
+
+function vHome(){
+  $('main').innerHTML = `<div class="card" style="display:flex;align-items:center;justify-content:space-between"><b>👤 ${esc(S.staff)}</b><button class="btn sec" style="width:auto;margin:0;padding:8px 12px" onclick="go('login')">${t('change')}</button></div>
+  ${btn('📦',t('out'),t('outS'),"startTap('OUT')")}
+  ${btn('📋',t('paste'),t('pasteS'),"startPaste()")}
+  ${btn('🚚',t('recv'),t('recvS'),"startDeliv()")}
+  ${btn('🗑️',t('wo'),t('woS'),"startTap('WRITEOFF')")}
+  ${btn('🔢',t('count'),t('countS'),"startTap('COUNT')")}`;
+}
+function btn(ic,a,b,fn){ return `<button class="big-btn" onclick="${fn}"><span class="ic">${ic}</span><span>${a}<small>${b}</small></span></button>`; }
+
+// ---- tap mode (OUT / WRITEOFF / COUNT / IN without order)
+function startTap(mode){ S.mode=mode; S.cart={}; S.q=''; S.cat = (mode==='COUNT'||!B.frequent.length) ? '__all' : '__freq'; S.photo=''; S.reason=''; go('tap'); }
+function cats(){ const c=[]; B.items.forEach(i=>{ if(c.indexOf(i.cat)<0) c.push(i.cat); }); return c; }
+function catLabel(c){ const p=c.split(' '); return L==='zh'? p[0] : p.slice(1).join(' ')||c; }
+function filtered(){
+  const q=S.q.trim().toLowerCase();
+  let list=B.items;
+  if(q) list=list.filter(i=>[i.id,i.en,i.cn,i.my,i.nick].join(' ').toLowerCase().indexOf(q)>=0);
+  else if(S.cat==='__freq') list=B.frequent.map(byId).filter(Boolean);
+  else if(S.cat!=='__all') list=list.filter(i=>i.cat===S.cat);
+  return list;
+}
+function vTap(){
+  const title={OUT:t('out'),WRITEOFF:t('wo'),COUNT:t('count'),IN:t('noOrder')}[S.mode];
+  const tabs = [(B.frequent.length?['__freq','⭐ '+t('freq')]:null),['__all',t('all')]].filter(Boolean).concat(cats().map(c=>[c,catLabel(c)]));
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${title}</h3>
+    ${S.mode==='COUNT'?`<div class="msg s" style="background:#eef2ff;color:#1e3a8a">${t('countHelp')}</div>`:''}
+    <input id="q" placeholder="${t('search')}" value="${esc(S.q)}" oninput="S.q=this.value;drawList()">
+    <div class="tabs">${tabs.map(x=>`<button class="${S.cat===x[0]&&!S.q?'on':''}" onclick="S.cat='${x[0].replace(/'/g,"\\'")}';S.q='';vTap()">${esc(x[1])}</button>`).join('')}</div>
+    <div id="list"></div>`;
+  drawList(); drawBar();
+}
+function drawList(){
+  $('list').innerHTML = filtered().map(it=>itemCard(it)).join('') || '<div class="center sub">—</div>';
+}
+function itemCard(it){
+  const c=S.cart[it.id]||{big:0,small:0,touched:false};
+  const stock = B.stock[it.id]!=null ? `<span class="stk">${t('onHand')}: ${esc(B.stock[it.id])}</span>` : '';
+  const sel = (c.big||c.small||c.touched)?'sel':'';
+  return `<div class="item ${sel}" id="it_${it.id}"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>${stock}
+    ${stepRow(it,'big',it.big+(it.per?` (${it.per} ${u(it.small)})`:''),c.big)}
+    ${it.per?stepRow(it,'small',it.small,c.small):''}</div>`;
+}
+function stepRow(it,k,label,v){ return `<div class="row"><div class="u">${esc(label)}</div><div class="stp"><button onclick="bump('${it.id}','${k}',-1)">−</button><span id="v_${it.id}_${k}">${v}</span><button onclick="bump('${it.id}','${k}',1)">+</button></div></div>`; }
+function bump(id,k,d){
+  const c=S.cart[id]||(S.cart[id]={big:0,small:0,touched:false});
+  c[k]=Math.max(0,(c[k]||0)+d); c.touched=true;
+  if(S.mode!=='COUNT' && !c.big && !c.small) delete S.cart[id];
+  const el=$('v_'+id+'_'+k); if(el) el.textContent=c[k]||0;
+  const card=$('it_'+id); if(card) card.classList.toggle('sel', !!S.cart[id]);
+  drawBar();
+}
+function drawBar(){
+  const n=Object.keys(S.cart).length;
+  $('bar').classList.toggle('hide',!n);
+  $('barCnt').textContent = n+' '+t('items');
+  $('barBtn').textContent = t('review')+' →';
+  $('barBtn').onclick = ()=>go('review'); $('barBtn').disabled=false;
+}
+function vReview(){
+  const ids=Object.keys(S.cart);
+  const title={OUT:t('out'),WRITEOFF:t('wo'),COUNT:t('count'),IN:t('noOrder')}[S.mode];
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${title} — ${t('review')}</h3>
+    ${ids.map(id=>{ const it=byId(id), c=S.cart[id]; return `<div class="item"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>
+      <div class="row"><div class="u"><b>${c.big||0}</b> ${esc(u(it.big))}${it.per?` + <b>${c.small||0}</b> ${esc(u(it.small))}`:''}</div></div></div>`; }).join('')}
+    ${S.mode==='WRITEOFF'?`<label>${t('reason')}</label><select id="rs">${['expired','damaged','thawed','other'].map(r=>`<option value="${r}">${t(r)}</option>`).join('')}</select><label>${t('note')}</label><input id="nt">`:''}
+    ${S.mode==='IN'?`<label>${t('supplier')}</label><input id="sp"><label>${t('photo')}</label><input type="file" accept="image/*" capture="environment" onchange="pickPhoto(this)"><div id="pv"></div>`:''}
+    <button class="btn sec" onclick="go('tap')">‹ ${t('change')}</button>`;
+  $('bar').classList.remove('hide'); $('barCnt').textContent=ids.length+' '+t('items');
+  $('barBtn').textContent=t('submit'); $('barBtn').disabled=false; $('barBtn').onclick=doSubmitTap;
+}
+function doSubmitTap(){
+  const lines=Object.keys(S.cart).map(id=>({id,big:S.cart[id].big||0,small:S.cart[id].small||0}));
+  if(S.mode==='IN'){ if(!S.photo) return alert(t('photoReq')); busy(true);
+    return call('receiveDelivery',{delId:'',staff:S.staff,pin:S.pin,lines,photo:S.photo,note:'Supplier: '+($('sp').value||'')}).then(after).catch(fail); }
+  let note=''; if(S.mode==='WRITEOFF'){ note=t('reason')+': '+T.en[$('rs').value]+($('nt').value?' — '+$('nt').value:''); }
+  busy(true);
+  call('submit',{type:S.mode,staff:S.staff,pin:S.pin,lines,note}).then(after).catch(fail);
+}
+function after(r){ busy(false); S.cart={}; S.lines=[]; S.photo=''; call('getBoot').then(d=>B=d); S.lastN=r.n; go('done'); }
+function fail(e){ busy(false); alert(errMsg(e)); }
+function vDone(){ $('main').innerHTML=`<div class="card center" style="padding:30px"><div style="font-size:52px">✅</div><h2>${t('done')}</h2><div class="sub">${S.lastN||''} ${t('items')}</div><button class="btn" onclick="go('home')">${t('again')}</button></div>`; }
+
+// ---- paste a list
+function startPaste(){ S.mode='OUT'; S.lines=[]; go('paste'); }
+function vPaste(){
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('paste')}</h3>
+    <textarea id="tx" placeholder="${esc(t('pasteHelp'))}">${esc(S.pasteText||'')}</textarea>
+    <button class="btn" onclick="doParse()">${t('read')} →</button>`;
+}
+function doParse(){
+  S.pasteText=$('tx').value; if(!S.pasteText.trim()) return;
+  busy(true);
+  call('parseList',S.pasteText,S.pin).then(r=>{ busy(false); S.lines=r.map(x=>Object.assign(x,{orig:x.status})); go('check'); }).catch(fail);
+}
+function vCheck(){
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('check')}</h3>` + S.lines.map((l,i)=>lineCard(l,i)).join('') +
+    `<button class="btn sec" onclick="go('paste')">‹ ${t('change')}</button>`;
+  drawCheckBar();
+}
+function lineCard(l,i){
+  const it=l.id?byId(l.id):null;
+  const opts = (l.options||[]).map(byId).filter(Boolean);
+  const pill = {ok:['ok',t('okL')],unsure:['unsure',t('unsureL')],none:['none',t('noneL')]}[l.status];
+  const all = B.items.filter(x=>opts.indexOf(x)<0);
+  return `<div class="item line s-${l.status}"><button class="x" onclick="S.lines.splice(${i},1);vCheck()">✕</button>
+    <span class="pill ${pill[0]}">${pill[1]}</span><div class="raw">${esc(l.raw)}</div>
+    <select onchange="setLine(${i},this.value)"><option value="">${t('choose')}</option>
+      ${opts.length?`<optgroup label="★">${opts.map(o=>`<option value="${o.id}" ${o.id===l.id?'selected':''}>${esc(itemName(o))} · ${o.id}</option>`).join('')}</optgroup>`:''}
+      <optgroup label="${t('all')}">${all.map(o=>`<option value="${o.id}" ${o.id===l.id?'selected':''}>${esc(itemName(o))} · ${o.id}</option>`).join('')}</optgroup>
+    </select>
+    ${l.qtyMissing?`<div class="sub" style="color:var(--warn)">${t('qtyMissing')}</div>`:''}
+    ${l.mixed?`<div class="sub" style="color:var(--warn)">${t('mixed')}</div>`:''}
+    ${it?`<div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="lq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="lq(${i},'big',1)">+</button></div></div>
+      ${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="lq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="lq(${i},'small',1)">+</button></div></div>`:''}`:''}
+  </div>`;
+}
+function setLine(i,id){ const l=S.lines[i]; l.id=id; l.status=id?'ok':'none'; l.learn = !!id && l.orig!=='ok'; l.qtyMissing=false; l.mixed=false; if(id && !l.big && !l.small) l.big=1; vCheck(); }
+function lq(i,k,d){ const l=S.lines[i]; l[k]=Math.max(0,(l[k]||0)+d); l.qtyMissing=false; l.mixed=false; if(l.status==='unsure'&&l.id) l.status='ok'; vCheck(); }
+function drawCheckBar(){
+  const bad=S.lines.filter(l=>l.status!=='ok').length;
+  $('bar').classList.remove('hide'); $('barCnt').textContent=S.lines.length+' '+t('items');
+  $('barBtn').textContent=t('submit'); $('barBtn').disabled = !S.lines.length;
+  $('barBtn').onclick=()=>{ if(bad) return alert(t('confirmLines'));
+    busy(true); call('submit',{type:'OUT',staff:S.staff,pin:S.pin,note:'Pasted list',
+      lines:S.lines.map(l=>({id:l.id,big:l.big,small:l.small,raw:l.raw,name:l.name,learn:!!l.learn}))}).then(r=>{S.pasteText='';after(r);}).catch(fail); };
+}
+
+// ---- deliveries
+function startDeliv(){ busy(true); call('getOpenDeliveries',S.pin).then(d=>{ busy(false); S.dels=d; go('deliv'); }).catch(fail); }
+function vDeliv(){
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('openDel')}</h3>` +
+    (S.dels.length? S.dels.map((d,i)=>`<button class="big-btn" onclick="openDel(${i})"><span class="ic">🚚</span><span>${esc(d.sup||d.id)}<small>${esc(d.id)} · ${esc(d.date)} · ${d.lines.length} ${t('items')}</small></span></button>`).join('') : `<div class="msg e" style="background:#fef3c7;color:#78350f">${t('noDel')}</div>`) +
+    `<button class="btn sec" onclick="startTap('IN')">${t('noOrder')}</button>`;
+}
+function openDel(i){ S.del=JSON.parse(JSON.stringify(S.dels[i])); S.photo=''; go('recv'); }
+function vRecv(){
+  const d=S.del;
+  $('main').innerHTML = `<h3 style="margin:4px 0 2px">${esc(d.sup)}</h3><div class="sub" style="margin-bottom:10px">${esc(d.id)} · ${esc(d.date)}</div>` +
+    d.lines.map((l,i)=>{ const it=byId(l.id); return `<div class="item"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}</div>
+      <div class="row"><div class="u">${esc(it.big)}</div><div class="stp"><button onclick="dq(${i},'big',-1)">−</button><span>${l.big}</span><button onclick="dq(${i},'big',1)">+</button></div></div>
+      ${it.per?`<div class="row"><div class="u">${esc(it.small)}</div><div class="stp"><button onclick="dq(${i},'small',-1)">−</button><span>${l.small}</span><button onclick="dq(${i},'small',1)">+</button></div></div>`:''}</div>`; }).join('') +
+    `<label>${t('photo')}</label><input type="file" accept="image/*" capture="environment" onchange="pickPhoto(this)"><div id="pv">${S.photo?`<img class="prev" src="${S.photo}">`:''}</div>`;
+  $('bar').classList.remove('hide'); $('barCnt').textContent=d.lines.length+' '+t('items');
+  $('barBtn').textContent=t('allRecv'); $('barBtn').disabled=false;
+  $('barBtn').onclick=()=>{ if(!S.photo) return alert(t('photoReq')); busy(true);
+    call('receiveDelivery',{delId:d.id,staff:S.staff,pin:S.pin,lines:d.lines,photo:S.photo}).then(after).catch(fail); };
+}
+function dq(i,k,dd){ const l=S.del.lines[i]; l[k]=Math.max(0,(l[k]||0)+dd); vRecv(); }
+function pickPhoto(inp){
+  const f=inp.files&&inp.files[0]; if(!f) return;
+  const img=new Image(), r=new FileReader();
+  r.onload=e=>{ img.onload=()=>{ const max=1400, sc=Math.min(1,max/Math.max(img.width,img.height));
+      const c=document.createElement('canvas'); c.width=img.width*sc; c.height=img.height*sc; c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+      S.photo=c.toDataURL('image/jpeg',0.7); $('pv').innerHTML=`<img class="prev" src="${S.photo}">`; }; img.src=e.target.result; };
+  r.readAsDataURL(f);
+}
+</script>
+</body>
+</html>

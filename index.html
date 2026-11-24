@@ -81,6 +81,7 @@
 <div id="pk" class="hide"></div>
 
 <script>
+const APP_VER = '2026-11-25 b';
 // ---------------- i18n ----------------
 const T = {
   en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\nblack fish 3 ctn\nbasa 2 ctn 5 pkt\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Tap ✓ Correct on each yellow line, and choose an item for each red line',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel',confirmOk:'✓ Correct'},
@@ -154,7 +155,8 @@ function vHome(){
   ${btn('📋',t('paste'),t('pasteS'),"startPaste()")}
   ${btn('🚚',t('recv'),t('recvS'),"startDeliv()")}
   ${btn('🗑️',t('wo'),t('woS'),"startTap('WRITEOFF')")}
-  ${btn('🔢',t('count'),t('countS'),"startTap('COUNT')")}`;
+  ${btn('🔢',t('count'),t('countS'),"startTap('COUNT')")}
+  <div class="center sub" style="margin-top:14px">App version ${APP_VER}</div>`;
 }
 function btn(ic,a,b,fn){ return `<button class="big-btn" onclick="${fn}"><span class="ic">${ic}</span><span>${a}<small>${b}</small></span></button>`; }
 

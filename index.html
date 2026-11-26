@@ -88,12 +88,12 @@
 <div id="pk" class="hide"></div>
 
 <script>
-const APP_VER = '2026-11-26 a';
+const APP_VER = '2026-11-27 a';
 // ---------------- i18n ----------------
 const T = {
-  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\nblack fish 3 ctn\nbasa 2 ctn 5 pkt\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Tap ✓ Correct on each yellow line, and choose an item for each red line',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel',confirmOk:'✓ Correct',noUnit:'No unit written — counted as packs. Check.'},
-  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请在每个黄色行按 ✓ 确认正确，红色行请选择物品',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消',confirmOk:'✓ 确认正确',noUnit:'没写单位 — 已算作“包”，请确认'},
-  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\nငါးမည်း ၃ သေတ္တာ\nကိုကာကိုလာ ၂ သေတ္တာ',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါစာကြောင်းတိုင်းတွင် ✓ နှိပ်ပါ၊ အနီစာကြောင်းအတွက် ပစ္စည်းရွေးပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့',confirmOk:'✓ မှန်ကန်သည်',noUnit:'ယူနစ် မရေးထား — ထုပ်အဖြစ် ရေထားသည်။ စစ်ပါ'}
+  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\nblack fish 3 ctn\nbasa 2 ctn 5 pkt\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Tap ✓ Correct on each yellow line, and choose an item for each red line',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel',confirmOk:'✓ Correct',doTitle:'Delivery order / invoice',doHelp:'Take a photo or choose from gallery. Several pages are OK (max 4).',doPhoto:'Take photo / choose from gallery',addPage:'Add another page',readDoc:'Read document',reading:'Reading the document… (about 20–40 seconds)',docNo:'DO / invoice no.',pages:'page(s)',dupWarn:'This document number was already received',skipped:'Not storeroom stock — skipped',include:'＋ Include anyway',noKey:'AI reader is not set up yet (API key missing). Tell Aldric.',aiFail:'Could not read the document. Try a clearer photo, or use Receive without order.',noUnit:'No unit written — counted as packs. Check.'},
+  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请在每个黄色行按 ✓ 确认正确，红色行请选择物品',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消',confirmOk:'✓ 确认正确',doTitle:'送货单 / 发票',doHelp:'拍照或从相册选择。可以多页（最多4页）。',doPhoto:'拍照 / 从相册选择',addPage:'再加一页',readDoc:'读取单据',reading:'正在读取单据…（约20–40秒）',docNo:'送货单 / 发票号码',pages:'页',dupWarn:'这张单据号码之前已经收过货',skipped:'不是仓库物品 — 已跳过',include:'＋ 仍然加入',noKey:'AI读取还没设置好（缺少API密钥），请通知Aldric。',aiFail:'读取失败。请拍清楚一点，或用“无订单收货”。',noUnit:'没写单位 — 已算作“包”，请确认'},
+  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\nငါးမည်း ၃ သေတ္တာ\nကိုကာကိုလာ ၂ သေတ္တာ',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါစာကြောင်းတိုင်းတွင် ✓ နှိပ်ပါ၊ အနီစာကြောင်းအတွက် ပစ္စည်းရွေးပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့',confirmOk:'✓ မှန်ကန်သည်',doTitle:'ပို့ဆောင်လွှာ / ငွေတောင်းခံလွှာ',doHelp:'ဓာတ်ပုံရိုက် သို့မဟုတ် ဓာတ်ပုံပြခန်းမှ ရွေးပါ။ စာမျက်နှာ အများဆုံး ၄ မျက်နှာ။',doPhoto:'ဓာတ်ပုံရိုက် / ပုံရွေး',addPage:'နောက်စာမျက်နှာ ထည့်',readDoc:'စာရွက်ဖတ်',reading:'စာရွက်ဖတ်နေသည်… (စက္ကန့် ၂၀–၄၀ ခန့်)',docNo:'DO / ငွေတောင်းခံလွှာ နံပါတ်',pages:'မျက်နှာ',dupWarn:'ဤစာရွက်နံပါတ်ကို လက်ခံပြီးဖြစ်သည်',skipped:'စတိုပစ္စည်းမဟုတ် — ကျော်ထားသည်',include:'＋ ထည့်မည်',noKey:'AI ဖတ်စနစ် မပြင်ဆင်ရသေး။ Aldric ကို ပြောပါ။',aiFail:'ဖတ်မရပါ။ ပိုရှင်းသောပုံ ရိုက်ပါ သို့မဟုတ် အော်ဒါမပါ လက်ခံ ကိုသုံးပါ။',noUnit:'ယူနစ် မရေးထား — ထုပ်အဖြစ် ရေထားသည်။ စစ်ပါ'}
 };
 let L = ls('lang') || 'zh';
 function t(k){ return (T[L]&&T[L][k]) || T.en[k] || k; }
@@ -113,7 +113,7 @@ function call(fn,...args){
     .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
     .then(j=>{ if(!j.ok) throw new Error(j.error); return j.data; });
 }
-function errMsg(e){ const m=String(e&&e.message||e); if(m.indexOf('PIN')>=0) return t('errPin'); if(m.indexOf('STAFF')>=0) return t('errStaff'); if(m.indexOf('EMPTY')>=0) return t('errEmpty'); if(m.indexOf('PHOTO')>=0) return t('photoReq'); return t('err')+': '+m; }
+function errMsg(e){ const m=String(e&&e.message||e); if(m.indexOf('PIN')>=0) return t('errPin'); if(m.indexOf('STAFF')>=0) return t('errStaff'); if(m.indexOf('EMPTY')>=0) return t('errEmpty'); if(m.indexOf('PHOTO')>=0) return t('photoReq'); if(m.indexOf('NOKEY')>=0) return t('noKey'); if(m.indexOf('AI_PARSE')>=0||m.indexOf('AI ')>=0) return t('aiFail')+' ('+m.slice(0,120)+')'; return t('err')+': '+m; }
 function itemName(it){ const p = L==='zh'? it.cn : L==='my'? (it.my||it.en) : it.en; return p||it.en; }
 function itemSub(it){ return [L!=='en'?it.en:it.cn, it.id].filter(Boolean).join(' · '); }
 function byId(id){ return B.items.find(i=>i.id===id); }
@@ -257,14 +257,23 @@ function vPaste(){
 function doParse(){
   S.pasteText=$('tx').value; if(!S.pasteText.trim()) return;
   busy(true);
-  call('parseList',S.pasteText,S.pin).then(r=>{ busy(false); S.lines=r.map(x=>Object.assign(x,{orig:x.status})); go('check'); }).catch(fail);
+  call('parseList',S.pasteText,S.pin).then(r=>{ busy(false); S.checkMode='PASTE'; S.lines=r.map(x=>Object.assign(x,{orig:x.status})); go('check'); }).catch(fail);
 }
 function vCheck(){
-  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('check')} · ${S.pasteType==='IN'?t('pasteIn'):t('pasteOut')}</h3>` + S.lines.map((l,i)=>lineCard(l,i)).join('') +
-    `<button class="btn sec" onclick="go('paste')">‹ ${t('change')}</button>`;
+  const isDO=S.checkMode==='DO', d=S.doc||{};
+  const head = isDO ? `<h3 style="margin:4px 0 8px">${t('check')} · ${t('recv')}</h3>
+      ${d.dup?`<div class="msg e">⚠️ ${t('dupWarn')} (${esc(d.dup)})</div>`:''}
+      <div class="card"><label style="margin-top:0">${t('supplier')}</label><input value="${esc(d.supplier||'')}" oninput="S.doc.supplier=this.value">
+      <label>${t('docNo')}</label><input value="${esc(d.docNo||'')}" oninput="S.doc.docNo=this.value">
+      <div class="sub" style="margin-top:6px">${esc(d.docDate||'')} · ${(d.photoUrls||[]).length} ${t('pages')}</div></div>`
+    : `<h3 style="margin:4px 0 8px">${t('check')} · ${S.pasteType==='IN'?t('pasteIn'):t('pasteOut')}</h3>`;
+  $('main').innerHTML = head + S.lines.map((l,i)=>lineCard(l,i)).join('') +
+    `<button class="btn sec" onclick="go('${isDO?'deliv':'paste'}')">‹ ${t('change')}</button>`;
   drawCheckBar();
 }
 function lineCard(l,i){
+  if(l.status==='skip') return `<div class="item line" style="opacity:.6"><div class="raw">${esc(l.raw)}</div>
+    <div class="sub">${t('skipped')}</div><button class="chip other" style="margin-top:6px" onclick="S.lines[${i}].status='none';vCheck()">${t('include')}</button></div>`;
   const it=l.id?byId(l.id):null;
   const opts = (l.options||[]).map(byId).filter(Boolean);
   const pill = {ok:['ok',t('okL')],unsure:['unsure',t('unsureL')],none:['none',t('noneL')]}[l.status];
@@ -302,14 +311,17 @@ function drawPicker(){
 function drawPickerList(){ const v=PK.q; drawPicker(); const el=$('pkq'); el.focus(); el.setSelectionRange(v.length,v.length); }
 function pRow(it){ return `<button class="prow" onclick="pickDone('${it.id}')"><div class="nm">${esc(itemName(it))}</div><div class="sub">${esc(itemSub(it))}${stockOf(it)!=null?' · '+t('onHand')+': '+esc(stockOf(it)):''}</div></button>`; }
 function pickDone(id){ const cb=PK.cb; closePicker(); if(cb) cb(id); }
-function setLine(i,id){ const l=S.lines[i]; l.id=id; l.status=id?'ok':'none'; l.learn = !!id && l.orig!=='ok'; l.qtyMissing=false; l.mixed=false; l.noUnit=false; if(id && !l.big && !l.small) l.big=1; vCheck(); }
+function setLine(i,id){ const l=S.lines[i]; l.id=id; l.status=id?'ok':'none'; l.learn = !!id && l.orig!=='ok' && S.checkMode!=='DO'; l.qtyMissing=false; l.mixed=false; l.noUnit=false; const it=id?byId(id):null; if(it && !it.per && l.small){ l.big=(l.big||0)+l.small; l.small=0; } if(id && !l.big && !l.small) l.big=1; vCheck(); }
 function lq(i,k,d){ const l=S.lines[i]; l[k]=Math.max(0,(l[k]||0)+d); vCheck(); }
 function confirmLine(i){ const l=S.lines[i]; if(!l.id) return; l.status='ok'; l.learn = l.orig!=='ok'; l.qtyMissing=false; l.mixed=false; l.noUnit=false; vCheck(); }
 function drawCheckBar(){
-  const bad=S.lines.filter(l=>l.status!=='ok').length;
-  $('bar').classList.remove('hide'); $('barCnt').textContent=S.lines.length+' '+t('items');
-  $('barBtn').textContent=t('submit'); $('barBtn').disabled = !S.lines.length;
+  const bad=S.lines.filter(l=>l.status!=='ok'&&l.status!=='skip').length, n=S.lines.filter(l=>l.status!=='skip').length;
+  $('bar').classList.remove('hide'); $('barCnt').textContent=n+' '+t('items');
+  $('barBtn').textContent=t('submit'); $('barBtn').disabled = !n;
   $('barBtn').onclick=()=>{ if(bad) return alert(t('confirmLines'));
+    if(S.checkMode==='DO'){ const d=S.doc; busy(true);
+      return call('receiveDO',{staff:S.staff,pin:S.pin,supplier:d.supplier,docNo:d.docNo,docDate:d.docDate,photoUrls:d.photoUrls,lines:S.lines})
+        .then(r=>{ S.doPhotos=[]; S.doc=null; after(r); }).catch(fail); }
     const inn=S.pasteType==='IN';
     busy(true); call('submit',{type:inn?'IN':'OUT',staff:S.staff,pin:S.pin,ref:inn?'PASTE-IN':'',photo:inn?S.photo:'',note:'Pasted list'+(inn&&S.pasteSup?' | Supplier: '+S.pasteSup:''),
       lines:S.lines.map(l=>({id:l.id,big:l.big,small:l.small,raw:l.raw,name:l.name,learn:!!l.learn}))}).then(r=>{S.pasteText='';S.pasteSup='';after(r);}).catch(fail); };
@@ -318,9 +330,32 @@ function drawCheckBar(){
 // ---- deliveries
 function startDeliv(){ busy(true); call('getOpenDeliveries',S.pin).then(d=>{ busy(false); S.dels=d; go('deliv'); }).catch(fail); }
 function vDeliv(){
-  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('openDel')}</h3>` +
-    (S.dels.length? S.dels.map((d,i)=>`<button class="big-btn" onclick="openDel(${i})"><span class="ic">🚚</span><span>${esc(d.sup||d.id)}<small>${esc(d.id)} · ${esc(d.date)} · ${d.lines.length} ${t('items')}</small></span></button>`).join('') : `<div class="msg e" style="background:#fef3c7;color:#78350f">${t('noDel')}</div>`) +
+  S.doPhotos=S.doPhotos||[];
+  $('main').innerHTML = `<h3 style="margin:4px 0 8px">${t('recv')}</h3>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:6px">📄 ${t('doTitle')}</div>
+      <div class="sub" style="margin-bottom:8px">${t('doHelp')}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">${S.doPhotos.map((p,i)=>`<div style="position:relative"><img src="${p}" style="width:88px;height:110px;object-fit:cover;border-radius:8px;border:1px solid var(--line)"><button onclick="S.doPhotos.splice(${i},1);vDeliv()" style="position:absolute;top:-6px;right:-6px;border:0;border-radius:50%;width:24px;height:24px;background:var(--ink);color:#fff">✕</button></div>`).join('')}</div>
+      <label class="btn sec" style="text-align:center;margin-top:10px">📷 ${S.doPhotos.length?t('addPage'):t('doPhoto')}<input type="file" accept="image/*" multiple style="display:none" onchange="addDoPhotos(this)"></label>
+      <button class="btn" ${S.doPhotos.length?'':'disabled'} onclick="readDoc()">🔍 ${t('readDoc')}</button>
+    </div>` +
+    (S.dels.length? `<h4 style="margin:14px 0 8px">${t('openDel')}</h4>`+S.dels.map((d,i)=>`<button class="big-btn" onclick="openDel(${i})"><span class="ic">🚚</span><span>${esc(d.sup||d.id)}<small>${esc(d.id)} · ${esc(d.date)} · ${d.lines.length} ${t('items')}</small></span></button>`).join('') : '') +
     `<button class="btn sec" onclick="startTap('IN')">${t('noOrder')}</button>`;
+}
+function addDoPhotos(inp){
+  const files=[...(inp.files||[])].slice(0,4-(S.doPhotos||[]).length); if(!files.length) return;
+  let left=files.length;
+  files.forEach(f=>{ const r=new FileReader(); r.onload=e=>{ const img=new Image(); img.onload=()=>{
+      const max=1600, sc=Math.min(1,max/Math.max(img.width,img.height)), c=document.createElement('canvas');
+      c.width=img.width*sc; c.height=img.height*sc; c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+      S.doPhotos.push(c.toDataURL('image/jpeg',0.8)); if(--left===0) vDeliv(); }; img.src=e.target.result; }; r.readAsDataURL(f); });
+}
+function readDoc(){
+  if(!S.doPhotos.length) return;
+  busy(true); $('spin').textContent=t('reading');
+  call('readDO',{pin:S.pin,photos:S.doPhotos}).then(r=>{ busy(false); $('spin').textContent='…';
+    S.doc=r; S.checkMode='DO'; S.lines=r.lines; go('check'); })
+  .catch(e=>{ $('spin').textContent='…'; fail(e); });
 }
 function openDel(i){ S.del=JSON.parse(JSON.stringify(S.dels[i])); S.photo=''; go('recv'); }
 function vRecv(){

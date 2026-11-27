@@ -88,12 +88,12 @@
 <div id="pk" class="hide"></div>
 
 <script>
-const APP_VER = '2026-11-27 j';
+const APP_VER='2026-11-27 n';
 // ---------------- i18n ----------------
 const T = {
-  en:{who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\nblack fish 3 ctn\nbasa 2 ctn 5 pkt\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Tap ✓ Correct on each yellow line, and choose an item for each red line',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel',confirmOk:'✓ Correct',docType:'Document type',dt_DO:'DO',dt_INV:'Invoice',dt_ORDER:'Order',skipNotRec:'Not received (crossed out) — skipped',autoPowder:'Added automatically: 1 pack 辣子鸡调味粉 per box of 辣子鸡块',cachedRead:'read before — no charge',doTitle:'Delivery order / invoice',doHelp:'Take a photo or choose from gallery. Several pages are OK (max 4).',doPhoto:'Take photo / choose from gallery',addPage:'Add another page',readDoc:'Read document',reading:'Reading the document… (about 20–40 seconds)',docNo:'DO / invoice no.',pages:'page(s)',dupWarn:'This document number was already received',skipped:'Not storeroom stock — skipped',include:'＋ Include anyway',noKey:'AI reader is not set up yet (API key missing). Tell Aldric.',aiFail:'Could not read the document. Try a clearer photo, or use Receive without order.',noUnit:'No unit written — counted as packs. Check.'},
-  zh:{who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请在每个黄色行按 ✓ 确认正确，红色行请选择物品',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消',confirmOk:'✓ 确认正确',docType:'单据类型',dt_DO:'送货单',dt_INV:'发票',dt_ORDER:'订单',skipNotRec:'没收货（已划掉）— 已跳过',autoPowder:'自动加入：每箱辣子鸡块附1包辣子鸡调味粉',cachedRead:'之前已读取 — 不收费',doTitle:'送货单 / 发票',doHelp:'拍照或从相册选择。可以多页（最多4页）。',doPhoto:'拍照 / 从相册选择',addPage:'再加一页',readDoc:'读取单据',reading:'正在读取单据…（约20–40秒）',docNo:'送货单 / 发票号码',pages:'页',dupWarn:'这张单据号码之前已经收过货',skipped:'不是仓库物品 — 已跳过',include:'＋ 仍然加入',noKey:'AI读取还没设置好（缺少API密钥），请通知Aldric。',aiFail:'读取失败。请拍清楚一点，或用“无订单收货”。',noUnit:'没写单位 — 已算作“包”，请确认'},
-  my:{who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\nငါးမည်း ၃ သေတ္တာ\nကိုကာကိုလာ ၂ သေတ္တာ',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါစာကြောင်းတိုင်းတွင် ✓ နှိပ်ပါ၊ အနီစာကြောင်းအတွက် ပစ္စည်းရွေးပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့',confirmOk:'✓ မှန်ကန်သည်',docType:'စာရွက်အမျိုးအစား',dt_DO:'DO',dt_INV:'ငွေတောင်းခံလွှာ',dt_ORDER:'အော်ဒါ',skipNotRec:'မရရှိ (ဖျက်ထား) — ကျော်ထားသည်',autoPowder:'အလိုအလျောက်ထည့်: 辣子鸡块 တစ်သေတ္တာလျှင် 辣子鸡调味粉 ၁ ထုပ်',cachedRead:'ယခင်ဖတ်ပြီး — အခမဲ့',doTitle:'ပို့ဆောင်လွှာ / ငွေတောင်းခံလွှာ',doHelp:'ဓာတ်ပုံရိုက် သို့မဟုတ် ဓာတ်ပုံပြခန်းမှ ရွေးပါ။ စာမျက်နှာ အများဆုံး ၄ မျက်နှာ။',doPhoto:'ဓာတ်ပုံရိုက် / ပုံရွေး',addPage:'နောက်စာမျက်နှာ ထည့်',readDoc:'စာရွက်ဖတ်',reading:'စာရွက်ဖတ်နေသည်… (စက္ကန့် ၂၀–၄၀ ခန့်)',docNo:'DO / ငွေတောင်းခံလွှာ နံပါတ်',pages:'မျက်နှာ',dupWarn:'ဤစာရွက်နံပါတ်ကို လက်ခံပြီးဖြစ်သည်',skipped:'စတိုပစ္စည်းမဟုတ် — ကျော်ထားသည်',include:'＋ ထည့်မည်',noKey:'AI ဖတ်စနစ် မပြင်ဆင်ရသေး။ Aldric ကို ပြောပါ။',aiFail:'ဖတ်မရပါ။ ပိုရှင်းသောပုံ ရိုက်ပါ သို့မဟုတ် အော်ဒါမပါ လက်ခံ ကိုသုံးပါ။',noUnit:'ယူနစ် မရေးထား — ထုပ်အဖြစ် ရေထားသည်။ စစ်ပါ'}
+  en:{scanWhole:'Whole photo',scanNext:'Next',scanUse:'Use this',scanAdjust:'Adjust',scanCheck:'Check: is the page upright and the text clear?',scanNoEdge:'Paper edges not clear — whole photo kept. Drag the corners if you want to crop.',who:'Who are you?',pickName:'Pick your name',pin:'Store PIN',start:'Start',out:'Take out to kitchen',outS:'Tap items',paste:'Paste a list',pasteS:'Paste the list you wrote',recv:'Receive delivery',recvS:'Supplier delivery + DO photo',wo:'Write-off',woS:'Expired / damaged / thawed',count:'Stocktake',countS:'Weekly physical count',freq:'Frequent',all:'All',search:'Search item',review:'Review',submit:'Submit',items:'items',done:'Saved ✓',again:'Back to home',pasteHelp:'One item per line. Example:\nblack fish 3 ctn\nbasa 2 ctn 5 pkt\ncoke 2 ctn',read:'Read list',check:'Check the list',okL:'OK',unsureL:'Check',noneL:'Not found',choose:'— choose item —',remove:'Remove',qtyMissing:'No quantity written — check',reason:'Reason',expired:'Expired',damaged:'Damaged',thawed:'Thawed / spoiled',other:'Other',note:'Note',photo:'Take photo of DO / invoice',photoReq:'DO photo is required',openDel:'Deliveries waiting',noDel:'No orders loaded. Use “Receive without order”.',noOrder:'Receive without order',supplier:'Supplier',allRecv:'Confirm received',onHand:'In store',counted:'counted',notCounted:'Not counted yet',countHelp:'Count what is on the shelf. Only items you touch are saved.',errPin:'Wrong PIN',errStaff:'Pick your name first',errEmpty:'Nothing to save',err:'Error',change:'Change',confirmLines:'Tap ✓ Correct on each yellow line, and choose an item for each red line',mixed:'Unit does not match this item (e.g. box vs pack). Check the number.',pickItem:'Choose item',otherItem:'🔍 Other item…',pasteOut:'📦 Take out',pasteIn:'📥 Add into store',supOpt:'Supplier (optional)',photoOpt:'Photo of DO (optional)',close:'Close',cancel:'Cancel',confirmOk:'✓ Correct',scanLoading:'Finding the paper edges…',scanFound:'Edges found — drag a corner to adjust',scanManual:'Drag the 4 blue corners to the paper edges',scanAuto:'Auto',scanRotate:'Rotate',scanBW:'Scan look',scanDrop:'Remove',scanDone:'Done',scanTip:'Tip: you can also choose a scanned PDF (iPhone: Files → Scan Documents; Android: Google Drive → Scan).',pdfBig:'PDF too big (max 8 MB)',uploadOnly:'Upload document only (no stock)',uploadHelp:'For vegetable DOs etc. Saves the photo to Drive. Stock is not changed. Free.',upload:'Upload',optional:'optional',docType:'Document type',dt_DO:'DO',dt_INV:'Invoice',dt_ORDER:'Order',skipNotRec:'Not received (crossed out) — skipped',autoPowder:'Added automatically: 1 pack 辣子鸡调味粉 per box of 辣子鸡块',cachedRead:'read before — no charge',doTitle:'Delivery order / invoice',doHelp:'Take a photo or choose from gallery. Several pages are OK (max 4).',doPhoto:'Take photo / choose from gallery',addPage:'Add another page',readDoc:'Read document',reading:'Reading the document… (about 20–40 seconds)',docNo:'DO / invoice no.',pages:'page(s)',dupWarn:'This document number was already received',skipped:'Not storeroom stock — skipped',include:'＋ Include anyway',noKey:'AI reader is not set up yet (API key missing). Tell Aldric.',aiFail:'Could not read the document. Try a clearer photo, or use Receive without order.',noUnit:'No unit written — counted as packs. Check.'},
+  zh:{scanWhole:'整张',scanNext:'下一步',scanUse:'用这张',scanAdjust:'调整',scanCheck:'检查：页面是否正、字是否清楚？',scanNoEdge:'找不到清楚的纸边 — 已保留整张照片。要裁剪可拖动角落。',who:'你是谁？',pickName:'选择名字',pin:'店铺密码',start:'开始',out:'领货到厨房',outS:'点选物品',paste:'粘贴清单',pasteS:'粘贴你写好的清单',recv:'收货',recvS:'供应商送货 + 拍送货单',wo:'报损',woS:'过期 / 损坏 / 解冻',count:'盘点',countS:'每周实物盘点',freq:'常用',all:'全部',search:'搜索物品',review:'核对',submit:'提交',items:'项',done:'已保存 ✓',again:'回到首页',pasteHelp:'一行一个物品，例如：\n黑鱼片 3箱\n巴沙 2箱 5包\ncoke 2 ctn',read:'读取清单',check:'核对清单',okL:'正确',unsureL:'请确认',noneL:'找不到',choose:'— 选择物品 —',remove:'删除',qtyMissing:'没写数量 — 请确认',reason:'原因',expired:'过期',damaged:'损坏',thawed:'解冻 / 变质',other:'其他',note:'备注',photo:'拍送货单 / 发票',photoReq:'必须拍送货单',openDel:'待收货',noDel:'没有订单。请用“无订单收货”。',noOrder:'无订单收货',supplier:'供应商',allRecv:'确认收货',onHand:'库存',counted:'已点',notCounted:'未点',countHelp:'按货架实际数量点。只保存你点过的物品。',errPin:'密码错误',errStaff:'请先选名字',errEmpty:'没有可保存的内容',err:'错误',change:'更换',confirmLines:'请在每个黄色行按 ✓ 确认正确，红色行请选择物品',mixed:'单位和此物品不符（箱/包），请确认数量',pickItem:'选择物品',otherItem:'🔍 其他物品…',pasteOut:'📦 出库（领货）',pasteIn:'📥 入库（进货）',supOpt:'供应商（可不填）',photoOpt:'送货单照片（可不拍）',close:'关闭',cancel:'取消',confirmOk:'✓ 确认正确',scanLoading:'正在找单据边缘…',scanFound:'已找到边缘 — 可拖动角落调整',scanManual:'请把4个蓝色角拖到单据边缘',scanAuto:'自动',scanRotate:'旋转',scanBW:'扫描效果',scanDrop:'删除',scanDone:'完成',scanTip:'也可以选扫描的 PDF（iPhone：文件 → 扫描文稿；Android：Google Drive → 扫描）。',pdfBig:'PDF 太大（最多 8MB）',uploadOnly:'只上传单据（不入库）',uploadHelp:'例如菜的送货单。照片存到 Drive，不会改库存，不收费。',upload:'上传',optional:'可不填',docType:'单据类型',dt_DO:'送货单',dt_INV:'发票',dt_ORDER:'订单',skipNotRec:'没收货（已划掉）— 已跳过',autoPowder:'自动加入：每箱辣子鸡块附1包辣子鸡调味粉',cachedRead:'之前已读取 — 不收费',doTitle:'送货单 / 发票',doHelp:'拍照或从相册选择。可以多页（最多4页）。',doPhoto:'拍照 / 从相册选择',addPage:'再加一页',readDoc:'读取单据',reading:'正在读取单据…（约20–40秒）',docNo:'送货单 / 发票号码',pages:'页',dupWarn:'这张单据号码之前已经收过货',skipped:'不是仓库物品 — 已跳过',include:'＋ 仍然加入',noKey:'AI读取还没设置好（缺少API密钥），请通知Aldric。',aiFail:'读取失败。请拍清楚一点，或用“无订单收货”。',noUnit:'没写单位 — 已算作“包”，请确认'},
+  my:{scanWhole:'ပုံအပြည့်',scanNext:'ရှေ့ဆက်',scanUse:'ဤပုံသုံးမည်',scanAdjust:'ပြင်မည်',scanCheck:'စစ်ပါ: စာမျက်နှာ မတ်နေပြီး စာ ရှင်းလား?',scanNoEdge:'စာရွက်အစွန်း မရှင်း — ပုံအပြည့် ထားသည်။ ဖြတ်လိုပါက ထောင့်များကို ဆွဲပါ။',who:'သင်ဘယ်သူလဲ?',pickName:'နာမည်ရွေးပါ',pin:'ဆိုင် PIN',start:'စတင်',out:'မီးဖိုချောင်သို့ ထုတ်ယူ',outS:'ပစ္စည်းများကို နှိပ်ပါ',paste:'စာရင်း ကူးထည့်',pasteS:'ရေးထားသော စာရင်းကို ကူးထည့်ပါ',recv:'ပစ္စည်း လက်ခံ',recvS:'ပေးသွင်းသူ ပို့ဆောင် + DO ဓာတ်ပုံ',wo:'ပျက်စီး စာရင်းသွင်း',woS:'သက်တမ်းကုန် / ပျက် / အေးခဲပျော်',count:'စတော့ရေတွက်',countS:'အပတ်စဉ် ရေတွက်ခြင်း',freq:'အသုံးများ',all:'အားလုံး',search:'ပစ္စည်းရှာရန်',review:'စစ်ဆေး',submit:'တင်သွင်း',items:'ခု',done:'သိမ်းပြီး ✓',again:'ပင်မသို့',pasteHelp:'တစ်ကြောင်းလျှင် ပစ္စည်းတစ်ခု။ ဥပမာ:\nငါးမည်း ၃ သေတ္တာ\nကိုကာကိုလာ ၂ သေတ္တာ',read:'စာရင်းဖတ်',check:'စာရင်းစစ်ပါ',okL:'မှန်',unsureL:'စစ်ပါ',noneL:'မတွေ့',choose:'— ပစ္စည်းရွေးပါ —',remove:'ဖျက်',qtyMissing:'အရေအတွက် မရေးထား — စစ်ပါ',reason:'အကြောင်းရင်း',expired:'သက်တမ်းကုန်',damaged:'ပျက်စီး',thawed:'အေးခဲပျော် / ပုပ်',other:'အခြား',note:'မှတ်ချက်',photo:'DO / ငွေတောင်းခံလွှာ ဓာတ်ပုံရိုက်',photoReq:'DO ဓာတ်ပုံ လိုအပ်သည်',openDel:'လက်ခံရန် ကျန်',noDel:'အော်ဒါမရှိ။ “အော်ဒါမပါ လက်ခံ” ကိုသုံးပါ။',noOrder:'အော်ဒါမပါ လက်ခံ',supplier:'ပေးသွင်းသူ',allRecv:'လက်ခံကြောင်း အတည်ပြု',onHand:'လက်ကျန်',counted:'ရေပြီး',notCounted:'မရေရသေး',countHelp:'စင်ပေါ်ရှိသည့်အတိုင်း ရေပါ။ နှိပ်ထားသောပစ္စည်းများသာ သိမ်းမည်။',errPin:'PIN မှားသည်',errStaff:'နာမည်အရင်ရွေးပါ',errEmpty:'သိမ်းစရာမရှိ',err:'အမှား',change:'ပြောင်း',confirmLines:'အဝါစာကြောင်းတိုင်းတွင် ✓ နှိပ်ပါ၊ အနီစာကြောင်းအတွက် ပစ္စည်းရွေးပါ',mixed:'ယူနစ် မကိုက်ညီပါ (သေတ္တာ/ထုပ်)။ အရေအတွက် စစ်ပါ',pickItem:'ပစ္စည်းရွေးပါ',otherItem:'🔍 အခြားပစ္စည်း…',pasteOut:'📦 ထုတ်ယူ',pasteIn:'📥 စတိုထဲထည့်',supOpt:'ပေးသွင်းသူ (မဖြစ်မနေမဟုတ်)',photoOpt:'DO ဓာတ်ပုံ (မဖြစ်မနေမဟုတ်)',close:'ပိတ်',cancel:'မလုပ်တော့',confirmOk:'✓ မှန်ကန်သည်',scanLoading:'စာရွက်အစွန်းရှာနေသည်…',scanFound:'အစွန်းတွေ့ပြီ — ထောင့်ကိုဆွဲ၍ပြင်နိုင်သည်',scanManual:'အပြာထောင့် ၄ ခုကို စာရွက်အစွန်းသို့ ဆွဲပါ',scanAuto:'အလိုအလျောက်',scanRotate:'လှည့်',scanBW:'စကင်ပုံစံ',scanDrop:'ဖျက်',scanDone:'ပြီးပြီ',scanTip:'စကင်ဖတ်ထားသော PDF ကိုလည်း ရွေးနိုင်သည်။',pdfBig:'PDF အရွယ်အစားကြီးလွန်း (8MB အများဆုံး)',uploadOnly:'စာရွက်သာ တင်မည် (စတော့မပြောင်း)',uploadHelp:'ဟင်းသီးဟင်းရွက် DO စသည်။ ဓာတ်ပုံကို Drive တွင် သိမ်းမည်။ စတော့ မပြောင်းပါ။ အခမဲ့။',upload:'တင်မည်',optional:'မဖြစ်မနေမဟုတ်',docType:'စာရွက်အမျိုးအစား',dt_DO:'DO',dt_INV:'ငွေတောင်းခံလွှာ',dt_ORDER:'အော်ဒါ',skipNotRec:'မရရှိ (ဖျက်ထား) — ကျော်ထားသည်',autoPowder:'အလိုအလျောက်ထည့်: 辣子鸡块 တစ်သေတ္တာလျှင် 辣子鸡调味粉 ၁ ထုပ်',cachedRead:'ယခင်ဖတ်ပြီး — အခမဲ့',doTitle:'ပို့ဆောင်လွှာ / ငွေတောင်းခံလွှာ',doHelp:'ဓာတ်ပုံရိုက် သို့မဟုတ် ဓာတ်ပုံပြခန်းမှ ရွေးပါ။ စာမျက်နှာ အများဆုံး ၄ မျက်နှာ။',doPhoto:'ဓာတ်ပုံရိုက် / ပုံရွေး',addPage:'နောက်စာမျက်နှာ ထည့်',readDoc:'စာရွက်ဖတ်',reading:'စာရွက်ဖတ်နေသည်… (စက္ကန့် ၂၀–၄၀ ခန့်)',docNo:'DO / ငွေတောင်းခံလွှာ နံပါတ်',pages:'မျက်နှာ',dupWarn:'ဤစာရွက်နံပါတ်ကို လက်ခံပြီးဖြစ်သည်',skipped:'စတိုပစ္စည်းမဟုတ် — ကျော်ထားသည်',include:'＋ ထည့်မည်',noKey:'AI ဖတ်စနစ် မပြင်ဆင်ရသေး။ Aldric ကို ပြောပါ။',aiFail:'ဖတ်မရပါ။ ပိုရှင်းသောပုံ ရိုက်ပါ သို့မဟုတ် အော်ဒါမပါ လက်ခံ ကိုသုံးပါ။',noUnit:'ယူနစ် မရေးထား — ထုပ်အဖြစ် ရေထားသည်။ စစ်ပါ'}
 };
 let L = ls('lang') || 'zh';
 function t(k){ return (T[L]&&T[L][k]) || T.en[k] || k; }
@@ -144,7 +144,7 @@ function render(){
   $('backBtn').classList.toggle('hide', !B || S.view==='home' || S.view==='login');
   $('bar').classList.add('hide');
   if(!B) return;
-  ({login:vLogin,home:vHome,tap:vTap,review:vReview,paste:vPaste,check:vCheck,deliv:vDeliv,recv:vRecv,done:vDone})[S.view]();
+  ({login:vLogin,home:vHome,tap:vTap,review:vReview,paste:vPaste,check:vCheck,deliv:vDeliv,recv:vRecv,done:vDone,upload:vUpload})[S.view]();
 }
 
 // ---------------- views ----------------
@@ -349,6 +349,270 @@ function drawCheckBar(){
       lines:S.lines.map(l=>({id:l.id,big:l.big,small:l.small,raw:l.raw,name:l.name,learn:!!l.learn}))}).then(r=>{S.pasteText='';S.pasteSup='';after(r);}).catch(fail); };
 }
 
+// ---------------- document scanner (auto edges via OpenCV.js, manual 4-corner fallback) ----------------
+let CV_P = null;
+function loadCV(){
+  if(window.cv && window.cv.Mat) return Promise.resolve(true);   // never resolve with cv itself: it is 'thenable' and would loop
+  if(CV_P) return CV_P;
+  CV_P = new Promise((res,rej)=>{
+    const done = c=>{ if(c && c.Mat){ window.cv=c; clearTimeout(to); res(true); } };
+    const to = setTimeout(()=>rej('timeout'), 60000);
+    const s = document.createElement('script'); s.src = 'opencv.js'; s.async = true;
+    s.onload = ()=>{ const c = window.cv; if(!c) return rej('nocv');
+      if(c.Mat) return done(c);
+      if(typeof c.then==='function'){ try{ c.then(m=>done(m)); }catch(e){} }
+      const prev = c.onRuntimeInitialized; c.onRuntimeInitialized = ()=>{ if(prev) try{prev();}catch(e){} done(c); };
+      const poll = setInterval(()=>{ if(window.cv && window.cv.Mat){ clearInterval(poll); done(window.cv); } }, 300);
+    };
+    s.onerror = ()=>{ clearTimeout(to); rej('load'); };
+    document.head.appendChild(s);
+  }).catch(e=>{ CV_P=null; throw e; });
+  return CV_P;
+}
+function orderQuad(p){
+  const s=p.map(q=>q.x+q.y), d=p.map(q=>q.x-q.y);
+  return [ p[s.indexOf(Math.min(...s))], p[d.indexOf(Math.max(...d))], p[s.indexOf(Math.max(...s))], p[d.indexOf(Math.min(...d))] ]; // tl,tr,br,bl
+}
+function defaultQuad(w,h){ return [{x:0,y:0},{x:w,y:0},{x:w,y:h},{x:0,y:h}]; }   // whole photo = no crop
+function quadOk(q,W,H){   // sensible paper shape: big enough, corners near 90°, opposite sides similar
+  const area=qq=>{ let a=0; for(let i=0;i<4;i++){ const p=qq[i], n=qq[(i+1)%4]; a+=p.x*n.y-n.x*p.y; } return Math.abs(a)/2; };
+  if(area(q)<W*H*0.2) return false;
+  for(let i=0;i<4;i++){ const p=q[(i+3)%4], c=q[i], n=q[(i+1)%4];
+    const v1={x:p.x-c.x,y:p.y-c.y}, v2={x:n.x-c.x,y:n.y-c.y};
+    const ang=Math.acos((v1.x*v2.x+v1.y*v2.y)/(Math.hypot(v1.x,v1.y)*Math.hypot(v2.x,v2.y)+1e-9))*180/Math.PI;
+    if(ang<60||ang>120) return false; }
+  const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y), r1=d(q[0],q[1])/d(q[3],q[2]), r2=d(q[0],q[3])/d(q[1],q[2]);
+  return r1>0.6&&r1<1/0.6&&r2>0.6&&r2<1/0.6;
+}
+// Rebuild 4 corners from the paper's straight sides (works when a corner is in shadow or cut by the threshold):
+// each side = the longest hull edge running along that side of the bounding box; corners = where sides meet.
+function sideQuad(cv,hull){
+  const P=[]; for(let i=0;i<hull.rows;i++) P.push({x:hull.data32S[i*2],y:hull.data32S[i*2+1]});
+  if(P.length<4) return null;
+  const R=orderQuad(cv.RotatedRect.points(cv.minAreaRect(hull)).map(o=>({x:o.x,y:o.y})));
+  const ang=(a,b)=>Math.atan2(b.y-a.y,b.x-a.x), best=[null,null,null,null];
+  for(let i=0;i<P.length;i++){ const p=P[i], q=P[(i+1)%P.length], L=Math.hypot(q.x-p.x,q.y-p.y); if(L<8) continue;
+    const m={x:(p.x+q.x)/2,y:(p.y+q.y)/2}; let bs=-1, bd=1e9;
+    for(let s=0;s<4;s++){ const a=R[s], b=R[(s+1)%4];
+      let d=Math.abs(ang(p,q)-ang(a,b))%Math.PI; d=Math.min(d,Math.PI-d); if(d>20*Math.PI/180) continue;
+      const len=Math.hypot(b.x-a.x,b.y-a.y), dist=Math.abs((b.x-a.x)*(a.y-m.y)-(a.x-m.x)*(b.y-a.y))/len;
+      if(dist<bd){ bd=dist; bs=s; } }
+    if(bs>=0 && (!best[bs] || L>best[bs].L)) best[bs]={p,q,L}; }
+  if(best.some(b=>!b)) return null;
+  const X=(e1,e2)=>{ const a1=e1.q.y-e1.p.y, b1=e1.p.x-e1.q.x, c1=a1*e1.p.x+b1*e1.p.y, a2=e2.q.y-e2.p.y, b2=e2.p.x-e2.q.x, c2=a2*e2.p.x+b2*e2.p.y, D=a1*b2-a2*b1;
+    return Math.abs(D)<1e-6?null:{x:(c1*b2-c2*b1)/D,y:(a1*c2-a2*c1)/D}; };
+  const q=[X(best[3],best[0]),X(best[0],best[1]),X(best[1],best[2]),X(best[2],best[3])];
+  return q.some(v=>!v)?null:q;
+}
+// Returns 4 corners ONLY when a clear paper outline is found. Otherwise null → the whole photo is kept
+// (a wrong guess bends the page and is worse than no crop).
+function detectQuad(src){
+  const cv=window.cv; if(!cv||!cv.Mat) return null;
+  const sc=Math.min(1,700/Math.max(src.width,src.height));
+  const sm=document.createElement('canvas'); sm.width=Math.round(src.width*sc); sm.height=Math.round(src.height*sc);
+  sm.getContext('2d').drawImage(src,0,0,sm.width,sm.height);
+  const m=cv.imread(sm), g=new cv.Mat(), e=new cv.Mat(), cs=new cv.MatVector(), h=new cv.Mat();
+  try{
+    cv.cvtColor(m,g,cv.COLOR_RGBA2GRAY);
+    cv.GaussianBlur(g,g,new cv.Size(5,5),0);
+    cv.Canny(g,e,40,120);
+    const k=cv.getStructuringElement(cv.MORPH_RECT,new cv.Size(5,5)); cv.dilate(e,e,k); k.delete();
+    cv.findContours(e,cs,h,cv.RETR_LIST,cv.CHAIN_APPROX_SIMPLE);
+    let best=null, bestA=0;
+    const W=sm.width, H=sm.height, mg=Math.max(W,H)*0.015;
+    const consider=ap=>{   // ap: 4-point Mat, or array of 4 points
+      let qq;
+      if(Array.isArray(ap)) qq=ap; else { if(ap.rows!==4 || !cv.isContourConvex(ap)) return; qq=[]; for(let j=0;j<4;j++) qq.push({x:ap.data32S[j*2],y:ap.data32S[j*2+1]}); }
+      if(qq.some(p=>p.x<mg||p.y<mg||p.x>W-mg||p.y>H-mg)) return;   // paper runs off the photo → can't see its corners
+      const oq=orderQuad(qq); let a=0; for(let i=0;i<4;i++){ const p=oq[i], n=oq[(i+1)%4]; a+=p.x*n.y-n.x*p.y; } a=Math.abs(a)/2;
+      if(a>bestA && quadOk(oq,W,H)){ best=oq; bestA=a; } };
+    const tryContours=(bin,mode)=>{ const cs2=new cv.MatVector(), h2=new cv.Mat();
+      cv.findContours(bin,cs2,h2,mode,cv.CHAIN_APPROX_SIMPLE);
+      for(let i=0;i<cs2.size();i++){ const c=cs2.get(i), a=cv.contourArea(c);
+        if(a>W*H*0.2){ for(const useHull of [false,true]){ let src2=c, hull=null;
+            if(useHull){ hull=new cv.Mat(); cv.convexHull(c,hull); src2=hull; }
+            const ap=new cv.Mat(); cv.approxPolyDP(src2,ap,(useHull?0.01:0.02)*cv.arcLength(src2,true),true); consider(ap);
+            if(useHull){ const sq=sideQuad(cv,ap); if(sq) consider(sq); }
+            ap.delete(); if(hull) hull.delete(); } }
+        c.delete(); }
+      cs2.delete(); h2.delete(); };
+    tryContours(e,cv.RETR_LIST);                       // a) edge lines
+    const th=new cv.Mat(); cv.threshold(g,th,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU);   // b) paper brighter than the table
+    const k2=cv.getStructuringElement(cv.MORPH_RECT,new cv.Size(9,9)); cv.morphologyEx(th,th,cv.MORPH_CLOSE,k2); k2.delete();
+    tryContours(th,cv.RETR_EXTERNAL); th.delete();
+    if(!best) return null;
+    // Is it the paper, or only the printed table inside it? If printing sits clearly outside the shape
+    // (e.g. the DO header above the table), it is the table → don't crop.
+    const ink=paperQuad(sm,1,sm);
+    if(ink){ const poly=cv.matFromArray(4,1,cv.CV_32SC2,best.flatMap(p=>[p.x,p.y])), tol=Math.hypot(sm.width,sm.height)*0.03;
+      const out=ink.some(p=>cv.pointPolygonTest(poly,new cv.Point(p.x,p.y),true)<-tol); poly.delete();
+      if(out) return null; }
+    return best.map(p=>({x:p.x/sc,y:p.y/sc}));
+  } catch(err){ return null; }
+  finally{ m.delete(); g.delete(); e.delete(); cs.delete(); h.delete(); }
+}
+// 2nd method: bound everything printed on the page (text, table, punch holes). Works even when the paper
+// and the table are the same colour, where the paper edge itself cannot be seen.
+function paperQuad(sm,sc,src){
+  const cv=window.cv, m=cv.imread(sm), g=new cv.Mat(), e=new cv.Mat(), cs=new cv.MatVector(), h=new cv.Mat();
+  try{
+    cv.cvtColor(m,g,cv.COLOR_RGBA2GRAY); cv.GaussianBlur(g,g,new cv.Size(3,3),0);
+    cv.Canny(g,e,30,90);
+    const k=cv.getStructuringElement(cv.MORPH_RECT,new cv.Size(3,3)); cv.dilate(e,e,k); k.delete();
+    cv.findContours(e,cs,h,cv.RETR_EXTERNAL,cv.CHAIN_APPROX_SIMPLE);
+    const W=sm.width, H=sm.height, pts=[];
+    for(let i=0;i<cs.size();i++){ const c=cs.get(i);
+      if(cv.arcLength(c,false)>30){ const r=cv.boundingRect(c);
+        const edge = r.x<=2 || r.y<=2 || r.x+r.width>=W-2 || r.y+r.height>=H-2;   // ignore things cut by the photo border
+        if(!edge) for(let j=0;j<c.rows;j++) pts.push(c.data32S[j*2], c.data32S[j*2+1]); }
+      c.delete(); }
+    if(pts.length<40) return null;
+    const all=cv.matFromArray(pts.length/2,1,cv.CV_32SC2,pts), hull=new cv.Mat(); cv.convexHull(all,hull);
+    const ap=new cv.Mat(); cv.approxPolyDP(hull,ap,0.02*cv.arcLength(hull,true),true);
+    let q;
+    if(ap.rows===4 && cv.isContourConvex(ap)){ q=[]; for(let j=0;j<4;j++) q.push({x:ap.data32S[j*2],y:ap.data32S[j*2+1]}); }
+    else q=cv.RotatedRect.points(cv.minAreaRect(hull)).map(o=>({x:o.x,y:o.y}));
+    all.delete(); hull.delete(); ap.delete();
+    q=orderQuad(q);   // pad 2% outwards so nothing at the edge is cut
+    const cx=q.reduce((a,o)=>a+o.x,0)/4, cy=q.reduce((a,o)=>a+o.y,0)/4;
+    return q.map(o=>({x:Math.min(src.width,Math.max(0,(cx+(o.x-cx)*1.03)/sc)),y:Math.min(src.height,Math.max(0,(cy+(o.y-cy)*1.03)/sc))}));
+  } catch(err){ return null; } finally { m.delete(); g.delete(); e.delete(); cs.delete(); h.delete(); }
+}
+// homography mapping output rectangle (w x h) → quad in the source image
+function homography(q,w,h){
+  const src=[[0,0],[w,0],[w,h],[0,h]], A=[], b=[];
+  for(let i=0;i<4;i++){ const [x,y]=src[i], X=q[i].x, Y=q[i].y;
+    A.push([x,y,1,0,0,0,-x*X,-y*X]); b.push(X); A.push([0,0,0,x,y,1,-x*Y,-y*Y]); b.push(Y); }
+  for(let c=0;c<8;c++){ let p=c; for(let r=c+1;r<8;r++) if(Math.abs(A[r][c])>Math.abs(A[p][c])) p=r;
+    [A[c],A[p]]=[A[p],A[c]]; [b[c],b[p]]=[b[p],b[c]];
+    for(let r=0;r<8;r++){ if(r===c) continue; const f=A[r][c]/A[c][c]; for(let k=c;k<8;k++) A[r][k]-=f*A[c][k]; b[r]-=f*b[c]; } }
+  return b.map((v,i)=>v/A[i][i]);
+}
+function warpAndEnhance(srcCanvas,q,enhance){
+  const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+  let W=Math.max(d(q[0],q[1]),d(q[3],q[2])), H=Math.max(d(q[0],q[3]),d(q[1],q[2]));
+  const sc=Math.min(1,1600/Math.max(W,H)); W=Math.round(W*sc); H=Math.round(H*sc);
+  const sw=srcCanvas.width, sh=srcCanvas.height, sd=srcCanvas.getContext('2d').getImageData(0,0,sw,sh).data;
+  const gray=new Float32Array(sw*sh); for(let i=0,j=0;i<gray.length;i++,j+=4) gray[i]=0.299*sd[j]+0.587*sd[j+1]+0.114*sd[j+2];
+  const hm=homography(q,W,H), out=document.createElement('canvas'); out.width=W; out.height=H;
+  const octx=out.getContext('2d'), od=octx.createImageData(W,H), G=new Float32Array(W*H);
+  const col = enhance ? null : new Uint8ClampedArray(W*H*4);
+  for(let y=0;y<H;y++) for(let x=0;x<W;x++){
+    const den=hm[6]*x+hm[7]*y+1, X=(hm[0]*x+hm[1]*y+hm[2])/den, Y=(hm[3]*x+hm[4]*y+hm[5])/den;
+    const x0=Math.max(0,Math.min(sw-2,Math.floor(X))), y0=Math.max(0,Math.min(sh-2,Math.floor(Y))), fx=Math.min(1,Math.max(0,X-x0)), fy=Math.min(1,Math.max(0,Y-y0));
+    const i0=y0*sw+x0, k=y*W+x;
+    G[k]=(gray[i0]*(1-fx)+gray[i0+1]*fx)*(1-fy)+(gray[i0+sw]*(1-fx)+gray[i0+sw+1]*fx)*fy;
+    if(col){ const p=(i0)*4; col[k*4]=sd[p]; col[k*4+1]=sd[p+1]; col[k*4+2]=sd[p+2]; col[k*4+3]=255; }
+  }
+  if(!enhance){ od.data.set(col); octx.putImageData(od,0,0); return out; }
+  // shadow / background removal: divide by a large box blur (integral image), then whiten paper + darken text
+  const r=Math.max(15,Math.round(Math.min(W,H)/18)), I=new Float64Array((W+1)*(H+1));
+  for(let y=1;y<=H;y++){ let row=0; for(let x=1;x<=W;x++){ row+=G[(y-1)*W+x-1]; I[y*(W+1)+x]=I[(y-1)*(W+1)+x]+row; } }
+  for(let y=0;y<H;y++){ const y1=Math.max(0,y-r), y2=Math.min(H,y+r+1);
+    for(let x=0;x<W;x++){ const x1=Math.max(0,x-r), x2=Math.min(W,x+r+1);
+      const sum=I[y2*(W+1)+x2]-I[y1*(W+1)+x2]-I[y2*(W+1)+x1]+I[y1*(W+1)+x1], bg=sum/((y2-y1)*(x2-x1))+1;
+      let v=Math.min(1,(G[y*W+x]/bg)/0.9); v=Math.pow(v,2.2)*255;
+      const p=(y*W+x)*4; od.data[p]=od.data[p+1]=od.data[p+2]=v; od.data[p+3]=255; } }
+  octx.putImageData(od,0,0); return out;
+}
+// straighten a slightly tilted page using the printed table / text lines (only small angles, ≤12°)
+function deskewAngle(c){
+  const cv=window.cv; if(!cv||!cv.Mat) return 0;
+  const sc=Math.min(1,1000/Math.max(c.width,c.height)), sm=document.createElement('canvas');
+  sm.width=Math.round(c.width*sc); sm.height=Math.round(c.height*sc); sm.getContext('2d').drawImage(c,0,0,sm.width,sm.height);
+  const m=cv.imread(sm), g=new cv.Mat(), e=new cv.Mat(), L=new cv.Mat();
+  try{
+    cv.cvtColor(m,g,cv.COLOR_RGBA2GRAY); cv.Canny(g,e,50,150);
+    const minLen=Math.min(sm.width,sm.height)*0.25;
+    cv.HoughLinesP(e,L,1,Math.PI/360,80,minLen,8);
+    const arr=[];
+    for(let i=0;i<L.rows;i++){ const [x1,y1,x2,y2]=[L.data32S[i*4],L.data32S[i*4+1],L.data32S[i*4+2],L.data32S[i*4+3]];
+      let a=Math.atan2(y2-y1,x2-x1)*180/Math.PI; a=((a+45)%90+90)%90-45;   // fold vertical + horizontal lines together
+      arr.push([a,Math.hypot(x2-x1,y2-y1)]); }
+    if(arr.length<4) return 0;
+    arr.sort((p,q)=>p[0]-q[0]); const tot=arr.reduce((s,p)=>s+p[1],0); let acc=0, med=0;
+    for(const p of arr){ acc+=p[1]; if(acc>=tot/2){ med=p[0]; break; } }
+    return (Math.abs(med)<0.3||Math.abs(med)>12)?0:med;
+  } catch(err){ return 0; } finally{ m.delete(); g.delete(); e.delete(); L.delete(); }
+}
+function rotateCanvas(c,deg,bg){
+  if(!deg) return c; const r=deg*Math.PI/180, cs=Math.abs(Math.cos(r)), sn=Math.abs(Math.sin(r));
+  const o=document.createElement('canvas'); o.width=Math.round(c.width*cs+c.height*sn); o.height=Math.round(c.width*sn+c.height*cs);
+  const x=o.getContext('2d'); x.fillStyle=bg||'#fff'; x.fillRect(0,0,o.width,o.height);
+  x.translate(o.width/2,o.height/2); x.rotate(r); x.drawImage(c,-c.width/2,-c.height/2); return o;
+}
+// full-screen scan screen: step 1 = corners, step 2 = check the result. Resolves with a JPEG dataURL, or null if removed.
+function scanOne(file){
+  return new Promise(resolve=>{
+    const fr=new FileReader();
+    fr.onload=e=>{ const img=new Image(); img.onload=()=>{
+      const sc=Math.min(1,2400/Math.max(img.width,img.height)), src=document.createElement('canvas');
+      src.width=Math.round(img.width*sc); src.height=Math.round(img.height*sc); src.getContext('2d').drawImage(img,0,0,src.width,src.height);
+      let q=defaultQuad(src.width,src.height), enhance=true, rot=0, flat=null, skew=0, result=null;
+      const B='class="btn sec" style="margin:0;flex:1;padding:11px 4px;font-size:15px"';
+      const ov=document.createElement('div'); ov.id='scan';
+      ov.style.cssText='position:fixed;inset:0;background:#111;z-index:30;display:flex;flex-direction:column;color:#fff';
+      ov.innerHTML=`<div style="padding:10px 14px;font-weight:700"><span id="scMsg">${t('scanLoading')}</span></div>
+        <div style="flex:1;position:relative;overflow:hidden" id="scWrap"><canvas id="scCv" style="position:absolute;touch-action:none"></canvas>
+          <img id="scImg" style="display:none;position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain;background:#333"></div>
+        <div style="padding:8px 12px calc(10px + env(safe-area-inset-bottom));background:#222">
+          <div id="scS1"><div style="display:flex;gap:8px;margin-bottom:8px">
+              <button id="scAuto" ${B}>↺ ${t('scanAuto')}</button>
+              <button id="scWhole" ${B}>⬜ ${t('scanWhole')}</button></div>
+            <div style="display:flex;gap:8px">
+              <button id="scDel" class="btn sec" style="margin:0;flex:1">🗑️ ${t('scanDrop')}</button>
+              <button id="scNext" class="btn" style="margin:0;flex:1.6">${t('scanNext')} →</button></div></div>
+          <div id="scS2" style="display:none"><div style="display:flex;gap:8px;margin-bottom:8px">
+              <button id="scRot" ${B}>⟳ ${t('scanRotate')}</button>
+              <button id="scBW" ${B}>◐ ${t('scanBW')}</button>
+              <button id="scBack" ${B}>↩ ${t('scanAdjust')}</button></div>
+            <div style="display:flex;gap:8px">
+              <button id="scDel2" class="btn sec" style="margin:0;flex:1">🗑️ ${t('scanDrop')}</button>
+              <button id="scOk" class="btn" style="margin:0;flex:1.6">✓ ${t('scanUse')}</button></div></div></div>`;
+      document.body.appendChild(ov);
+      const $=id=>ov.querySelector(id), cvs=$('#scCv'), wrap=$('#scWrap'), ctx=cvs.getContext('2d'), pv=$('#scImg');
+      const PAD=22; let k=1, drag=-1;
+      function layout(){ const W=wrap.clientWidth-PAD*2, H=wrap.clientHeight-PAD*2; k=Math.min(W/src.width,H/src.height);
+        cvs.width=Math.round(src.width*k); cvs.height=Math.round(src.height*k);
+        cvs.style.left=(PAD+(W-cvs.width)/2)+'px'; cvs.style.top=(PAD+(H-cvs.height)/2)+'px'; draw(); }
+      function draw(){ ctx.drawImage(src,0,0,cvs.width,cvs.height); ctx.fillStyle='rgba(0,0,0,.4)'; ctx.beginPath(); ctx.rect(0,0,cvs.width,cvs.height);
+        ctx.moveTo(q[0].x*k,q[0].y*k); for(let i=3;i>=0;i--) ctx.lineTo(q[i].x*k,q[i].y*k); ctx.closePath(); ctx.fill('evenodd');
+        ctx.strokeStyle='#3b82f6'; ctx.lineWidth=3; ctx.beginPath(); q.forEach((p,i)=>i?ctx.lineTo(p.x*k,p.y*k):ctx.moveTo(p.x*k,p.y*k)); ctx.closePath(); ctx.stroke();
+        q.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x*k,p.y*k,14,0,7); ctx.fillStyle='rgba(59,130,246,.45)'; ctx.fill(); ctx.lineWidth=3; ctx.strokeStyle='#fff'; ctx.stroke(); }); }
+      const setMsg=m=>{ $('#scMsg').textContent=m; };
+      // corners can be grabbed a little outside the picture (they sit on its edge when the whole photo is used)
+      function pos(ev){ const r=cvs.getBoundingClientRect(); return {x:(ev.clientX-r.left)/k,y:(ev.clientY-r.top)/k}; }
+      wrap.addEventListener('pointerdown',ev=>{ if(cvs.style.display==='none') return; const p=pos(ev); let bi=-1,bd=1e9;
+        q.forEach((c,i)=>{ const dd=Math.hypot(c.x-p.x,c.y-p.y)*k; if(dd<bd){bd=dd;bi=i;} }); if(bd<60){ drag=bi; wrap.setPointerCapture(ev.pointerId); ev.preventDefault(); } });
+      wrap.addEventListener('pointermove',ev=>{ if(drag<0) return; const p=pos(ev); q[drag]={x:Math.max(0,Math.min(src.width,p.x)),y:Math.max(0,Math.min(src.height,p.y))}; flat=null; draw(); });
+      wrap.addEventListener('pointerup',()=>{ drag=-1; });
+      wrap.style.touchAction='none';
+      window.addEventListener('resize',layout);
+      const close=v=>{ window.removeEventListener('resize',layout); ov.remove(); resolve(v); };
+      const step=n=>{ $('#scS1').style.display=n===1?'':'none'; $('#scS2').style.display=n===2?'':'none';
+        cvs.style.display=n===1?'':'none'; pv.style.display=n===2?'':'none'; };
+      function build(){   // crop + flatten (cached per corner set), then straighten, then the user's rotation
+        if(!flat){ flat=warpAndEnhance(src,q,true); skew=deskewAngle(flat); flat._col=null; }
+        let o=enhance?flat:(flat._col||(flat._col=warpAndEnhance(src,q,false)));
+        o=rotateCanvas(o,-skew,'#fff'); if(rot) o=rotateCanvas(o,rot);
+        result=o.toDataURL('image/jpeg',enhance?0.7:0.8); pv.src=result; }
+      const runAuto=()=>{ const d=detectQuad(src); if(d){ q=d; setMsg(t('scanFound')); } else { q=defaultQuad(src.width,src.height); setMsg(t('scanNoEdge')); } flat=null; draw(); };
+      $('#scAuto').onclick=()=>{ if(window.cv&&window.cv.Mat) runAuto(); };
+      $('#scWhole').onclick=()=>{ q=defaultQuad(src.width,src.height); flat=null; setMsg(t('scanManual')); draw(); };
+      $('#scDel').onclick=$('#scDel2').onclick=()=>close(null);
+      $('#scNext').onclick=()=>{ setMsg('…'); setTimeout(()=>{ build(); step(2); setMsg(t('scanCheck')); },30); };
+      $('#scBack').onclick=()=>{ step(1); setMsg(t('scanManual')); layout(); };
+      $('#scRot').onclick=()=>{ rot=(rot+90)%360; build(); };
+      $('#scBW').onclick=e=>{ enhance=!enhance; e.currentTarget.style.opacity=enhance?1:.55; build(); };
+      $('#scOk').onclick=()=>close(result);
+      layout();
+      loadCV().then(()=>runAuto()).catch(()=>{ setMsg(t('scanNoEdge')); });
+    }; img.src=e.target.result; };
+    fr.readAsDataURL(file);
+  });
+}
+async function scanFiles(files){ const out=[]; for(const f of files){ const r=await scanOne(f); if(r) out.push(r); } return out; }
+
 // ---- deliveries
 function startDeliv(){ busy(true); call('getOpenDeliveries',S.pin).then(d=>{ busy(false); S.dels=d; go('deliv'); }).catch(fail); }
 function vDeliv(){
@@ -362,15 +626,40 @@ function vDeliv(){
       <button class="btn" ${S.doPhotos.length?'':'disabled'} onclick="readDoc()">🔍 ${t('readDoc')}</button>
     </div>` +
     (S.dels.length? `<h4 style="margin:14px 0 8px">${t('openDel')}</h4>`+S.dels.map((d,i)=>`<button class="big-btn" onclick="openDel(${i})"><span class="ic">🚚</span><span>${esc(d.sup||d.id)}<small>${esc(d.id)} · ${esc(d.date)} · ${d.lines.length} ${t('items')}</small></span></button>`).join('') : '') +
-    `<button class="btn sec" onclick="startTap('IN')">${t('noOrder')}</button>`;
+    `<button class="btn sec" onclick="startTap('IN')">${t('noOrder')}</button>
+    <button class="btn sec" onclick="startUpload()">🥬 ${t('uploadOnly')}</button>`;
+}
+// ---- upload document only (vegetable DOs etc.) — no AI, no stock
+function startUpload(){ S.up={photos:[],supplier:'JA & EE',docType:'DO',docNo:''}; go('upload'); }
+function vUpload(){
+  const u_=S.up, sups=['JA & EE','Cheng Keong','HY Supply','Yihai (YonnyOne)'];
+  $('main').innerHTML=`<h3 style="margin:4px 0 4px">🥬 ${t('uploadOnly')}</h3><div class="sub" style="margin-bottom:10px">${t('uploadHelp')}</div>
+    <div class="card"><label style="margin-top:0">${t('supplier')}</label>
+      <div class="chips">${sups.map(s=>`<button class="chip ${u_.supplier===s?'on':''}" onclick="S.up.supplier='${s}';vUpload()">${esc(s)}</button>`).join('')}</div>
+      <input placeholder="${t('supplier')}" value="${esc(u_.supplier)}" oninput="S.up.supplier=this.value">
+      <label>${t('docType')}</label><div class="seg" style="margin-bottom:0">${['DO','INV'].map(x=>`<button class="${u_.docType===x?'on':''}" onclick="S.up.docType='${x}';vUpload()">${t('dt_'+x)}</button>`).join('')}</div>
+      <label>${t('docNo')} (${t('optional')})</label><input value="${esc(u_.docNo)}" oninput="S.up.docNo=this.value"></div>
+    <div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px">${u_.photos.map((p,i)=>`<div style="position:relative">${p.indexOf('data:application/pdf')===0?`<div style="width:88px;height:110px;border-radius:8px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:28px;background:#fff">📄<span style="font-size:11px">PDF</span></div>`:`<img src="${p}" style="width:88px;height:110px;object-fit:cover;border-radius:8px;border:1px solid var(--line)">`}<button onclick="S.up.photos.splice(${i},1);vUpload()" style="position:absolute;top:-6px;right:-6px;border:0;border-radius:50%;width:24px;height:24px;background:var(--ink);color:#fff">✕</button></div>`).join('')}</div>
+      <label class="btn sec" style="text-align:center;margin-top:10px">📷 ${u_.photos.length?t('addPage'):t('doPhoto')}<input type="file" accept="image/*,application/pdf" multiple style="display:none" onchange="addUpPhotos(this)"></label>
+      <div class="sub" style="margin-top:6px">${t('scanTip')}</div></div>`;
+  $('bar').classList.remove('hide'); $('barCnt').textContent=u_.photos.length+' '+t('pages');
+  $('barBtn').textContent='⬆️ '+t('upload'); $('barBtn').disabled=!u_.photos.length;
+  $('barBtn').onclick=()=>{ if(!S.up.photos.length) return; busy(true);
+    call('uploadDocOnly',{pin:S.pin,staff:S.staff,photos:S.up.photos,supplier:S.up.supplier,docType:S.up.docType,docNo:S.up.docNo})
+      .then(r=>{ busy(false); S.lastN=r.n; S.up=null; go('done'); }).catch(fail); };
+}
+async function addUpPhotos(inp){
+  const files=[...(inp.files||[])].slice(0,6-S.up.photos.length); inp.value=''; if(!files.length) return;
+  for(const f of files){
+    if(f.type==='application/pdf'){ if(f.size>8e6){ alert(t('pdfBig')); continue; }
+      S.up.photos.push(await new Promise(r=>{ const fr=new FileReader(); fr.onload=e=>r(e.target.result); fr.readAsDataURL(f); })); }
+    else { const out=await scanFiles([f]); S.up.photos.push(...out); }
+  }
+  vUpload();
 }
 function addDoPhotos(inp){
-  const files=[...(inp.files||[])].slice(0,4-(S.doPhotos||[]).length); if(!files.length) return;
-  let left=files.length;
-  files.forEach(f=>{ const r=new FileReader(); r.onload=e=>{ const img=new Image(); img.onload=()=>{
-      const max=1600, sc=Math.min(1,max/Math.max(img.width,img.height)), c=document.createElement('canvas');
-      c.width=img.width*sc; c.height=img.height*sc; c.getContext('2d').drawImage(img,0,0,c.width,c.height);
-      S.doPhotos.push(c.toDataURL('image/jpeg',0.8)); if(--left===0) vDeliv(); }; img.src=e.target.result; }; r.readAsDataURL(f); });
+  const files=[...(inp.files||[])].filter(f=>f.type.indexOf('image')===0).slice(0,4-(S.doPhotos||[]).length); inp.value=''; if(!files.length) return;
+  scanFiles(files).then(arr=>{ S.doPhotos.push(...arr); vDeliv(); });
 }
 function readDoc(){
   if(!S.doPhotos.length) return;
